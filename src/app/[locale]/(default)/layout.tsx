@@ -1,5 +1,7 @@
 import Navbar from "@/components/Navbar";
 
+export const dynamic = "force-dynamic";
+
 export default async function DefaultLayout({
   children,
   params,
