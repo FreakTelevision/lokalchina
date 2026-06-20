@@ -17,16 +17,16 @@ export default function WhyLokalChina() {
   ];
 
   return (
-    <section className={`w-full bg-black text-white py-20 ${montserrat.className}`}>
+    <section className={`w-full bg-[#f9f9fb] text-black py-20 ${montserrat.className}`}>
       <div className="max-w-5xl mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-lg tracking-[0.2em] uppercase font-light text-gray-400">Why LokalChina</h2>
+          <h2 className="text-lg tracking-[0.2em] uppercase font-light text-gray-500">Why LokalChina?</h2>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 items-start justify-center">
           {advantages.map((item, index) => (
             <div key={index} className="flex flex-col items-center text-center gap-3">
               {item.icon}
-              <span className="text-[11px] tracking-wide text-gray-300 font-light">{item.title}</span>
+              <span className="text-[11px] tracking-wide text-gray-600 font-light">{item.title}</span>
             </div>
           ))}
         </div>
