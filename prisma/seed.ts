@@ -235,9 +235,9 @@ async function main() {
       "https://images.unsplash.com/photo-1580674684081-7617fbf3d745?w=1200&h=800&fit=crop",
     ]],
     [route3.id, [
-      "https://images.unsplash.com/photo-1528164344705-47542687000d?w=1200&h=800&fit=crop",
-      "https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=1200&h=800&fit=crop",
-      "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=1200&h=800&fit=crop",
+      "/images/pexels-ray-feng-204755709-12035287.jpg",
+      "/images/pexels-lwr1999-38098072.jpg",
+      "/images/pexels-lwr1999-38098073.jpg",
     ]],
   ];
   for (const [routeId, images] of routeImages) {

@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { getRouteBySlug } from "@/lib/queries";
 import { RouteGallery } from "@/components/routes/route-gallery";
+import ShanxiRouteHero from "@/components/routes/ShanxiRouteHero";
 import { RouteItinerary } from "@/components/routes/route-itinerary";
 import { RoutePricing } from "@/components/routes/route-pricing";
 import { StarRating } from "@/components/shared/star-rating";
@@ -50,8 +51,12 @@ export default async function RouteDetailPage({ params }: RouteDetailPageProps) 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Main Content */}
         <div className="lg:col-span-2 space-y-8">
-          {/* Gallery */}
-          <RouteGallery images={route.images} locale={locale} />
+          {/* Gallery or Hero */}
+          {route.slug === "shanxi-black-myth-pilgrimage" ? (
+            <ShanxiRouteHero locale={locale} />
+          ) : (
+            <RouteGallery images={route.images} locale={locale} />
+          )}
 
           {/* Title & Meta */}
           <div>
@@ -265,6 +270,22 @@ export default async function RouteDetailPage({ params }: RouteDetailPageProps) 
 
         {/* Sidebar: Booking Widget */}
         <div className="lg:col-span-1">
+          {route.slug === "shanxi-black-myth-pilgrimage" ? (
+            <div className="bg-card rounded-xl border p-6 space-y-5 sticky top-24">
+              <div>
+                <span className="text-3xl font-bold text-primary">$2,523</span>
+                <span className="text-muted-foreground text-sm"> /person (2 travelers)</span>
+              </div>
+              <div className="space-y-2 text-sm text-muted-foreground">
+                <div className="flex justify-between"><span>Solo traveler</span><span className="font-medium">$4,630</span></div>
+                <div className="flex justify-between"><span>2 travelers</span><span className="font-medium">$2,523/pp</span></div>
+                <div className="flex justify-between"><span>3 travelers</span><span className="font-medium">$1,821/pp</span></div>
+                <div className="flex justify-between"><span>4 travelers</span><span className="font-medium">$1,470/pp</span></div>
+              </div>
+              <div className="border-t pt-4 text-xs text-muted-foreground">Max 4 travelers • 6 Days • All-inclusive</div>
+              <Link href={`/${locale}/booking?route=shanxi-black-myth-pilgrimage`} className="block w-full bg-primary text-primary-foreground text-center py-3 text-sm font-medium hover:opacity-90 transition-opacity">Book Now</Link>
+            </div>
+          ) : (
           <RoutePricing
             routeSlug={route.slug}
             pricePerPerson={route.pricePerPerson}
@@ -272,6 +293,7 @@ export default async function RouteDetailPage({ params }: RouteDetailPageProps) 
             maxGroupSize={route.maxGroupSize}
             locale={locale}
           />
+          )}
         </div>
       </div>
     </div>
