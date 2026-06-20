@@ -34,7 +34,7 @@ export default async function HomePage({ params }: PageProps) {
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-[#0b0c10]" />
         </div>
 
-        <header className="relative z-10 w-full max-w-7xl grid grid-cols-[1fr_auto_1fr] items-center py-2">
+        <header className="relative z-50 w-full max-w-7xl grid grid-cols-[1fr_auto_1fr] items-center py-2">
           {/* Left: Logo */}
           <div className="flex justify-start">
             <Link href={`/${locale}`} className="flex items-center gap-2.5 hover:opacity-80 transition-opacity">
@@ -47,7 +47,14 @@ export default async function HomePage({ params }: PageProps) {
           {/* Center: Nav */}
           <nav className="hidden md:flex items-center gap-12 text-[11px] tracking-[0.25em] font-light uppercase text-gray-200">
             <Link href={`/${locale}/routes`} className="hover:text-white transition-colors">{t('navRoutes')}</Link>
-            <Link href={`/${locale}/guides`} className="hover:text-white transition-colors">{t('navGuides')}</Link>
+            <div className="relative group cursor-pointer py-2">
+              <span className="hover:text-white transition-colors">{t('navGuides')}</span>
+              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1 w-64 bg-[#0b0c10]/95 backdrop-blur-md border border-white/10 p-2 flex flex-col opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 z-50 shadow-2xl">
+                <Link href={`/${locale}/services/bespoke-travel`} className="text-[10px] tracking-widest uppercase font-light text-gray-300 hover:text-white hover:bg-white/5 px-4 py-3 transition-all">Bespoke Travel</Link>
+                <Link href={`/${locale}/services/medical-concierge`} className="text-[10px] tracking-widest uppercase font-light text-gray-300 hover:text-white hover:bg-white/5 px-4 py-3 transition-all border-t border-white/5">Medical Concierge</Link>
+                <Link href={`/${locale}/services/enterprise-sourcing`} className="text-[10px] tracking-widest uppercase font-light text-gray-300 hover:text-white hover:bg-white/5 px-4 py-3 transition-all border-t border-white/5">Enterprise Sourcing &amp; Expeditions</Link>
+              </div>
+            </div>
             <Link href={`/${locale}/about`} className="hover:text-white transition-colors">{t('navAbout')}</Link>
           </nav>
 
