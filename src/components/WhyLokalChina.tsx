@@ -24,9 +24,9 @@ export default function WhyLokalChina() {
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8">
           {advantages.map((item, index) => (
-            <div key={index} className="flex flex-col items-center text-center h-full">
+            <div key={index} className="flex flex-col items-center text-center">
               <span className="mb-3">{item.icon}</span>
-              <span className="text-sm tracking-wide text-gray-700 font-medium flex-1 flex items-end">{item.title}</span>
+              <span className="text-sm tracking-wide text-gray-700 font-medium leading-snug h-10 flex items-center justify-center">{item.title}</span>
             </div>
           ))}
         </div>
