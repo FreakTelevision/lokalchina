@@ -8,7 +8,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { SessionProvider } from "@/components/layout/session-provider";
 import { BookingProvider } from "@/store/booking-context";
 import { CurrencyProvider } from "@/store/currency-context";
-import { Footer } from "@/components/layout/footer";
+import Footer from "@/components/Footer";
 import "../globals.css";
 
 const geistSans = Geist({
