@@ -186,42 +186,6 @@ export default async function RouteDetailPage({ params }: RouteDetailPageProps) 
               )}
             </TabsContent>
 
-            {/* Guides Tab — REMOVED */}
-                <div className="grid sm:grid-cols-2 gap-4">
-                  {route.guides.map((guide) => (
-                    <Link
-                      key={guide.id}
-                      href={`/${locale}/guides/${guide.slug}`}
-                      className="flex items-start gap-4 p-4 rounded-xl border hover:border-primary/50 hover:bg-accent/30 transition-all"
-                    >
-                      <Avatar className="h-12 w-12">
-                        <AvatarFallback>
-                          {guide.name?.charAt(0)?.toUpperCase() || "G"}
-                        </AvatarFallback>
-                      </Avatar>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2">
-                          <h4 className="font-semibold text-sm">{guide.name}</h4>
-                          {guide.isVerified && (
-                            <Badge variant="secondary" className="text-[10px] px-1.5 py-0">
-                              ✓ Verified
-                            </Badge>
-                          )}
-                          {guide.isFeatured && (
-                            <Badge className="text-[10px] px-1.5 py-0">Featured</Badge>
-                          )}
-                        </div>
-                        <StarRating rating={guide.averageRating} size="sm" className="mt-0.5" />
-                        <p className="text-xs text-muted-foreground mt-1">
-                          {guide.languages.join(", ").toUpperCase()}
-                        </p>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </TabsContent>
-
             {/* FAQs Tab */}
             <TabsContent value="faqs" className="mt-6">
               {route.faqs.length === 0 ? (
