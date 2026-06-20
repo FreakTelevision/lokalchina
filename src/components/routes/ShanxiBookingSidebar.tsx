@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { ShieldCheck } from 'lucide-react';
 
-const priceTier: Record<number, number> = { 1: 4630, 2: 2523, 3: 1821, 4: 1470 };
+const priceTier: Record<number, number> = { 1: 4270, 2: 2360, 3: 2060, 4: 1660 };
 
 export default function ShanxiBookingSidebar() {
   const [travelers, setTravelers] = useState(2);
