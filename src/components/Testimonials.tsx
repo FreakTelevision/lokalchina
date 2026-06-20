@@ -25,6 +25,10 @@ export default function Testimonials() {
       author: "Chloé, France"
     },
     {
+      quote: "Our guide pointed out every location from the game. The side-by-side comparison booklet made us realize how faithfully the developers recreated these temples.",
+      author: "Henrik, Sweden"
+    },
+    {
       quote: "When I fell ill in Guangzhou, their bilingual escort had me in a premium private clinic within the hour. Incredibly reliable.",
       author: "Ji-Hoon, South Korea"
     }
@@ -33,7 +37,7 @@ export default function Testimonials() {
   return (
     <section className={`w-full bg-white text-[#111215] pb-16 ${montserrat.className}`}>
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8">
           {reviews.map((item, index) => (
             <div key={index} className="flex flex-col items-center text-center px-2 h-full">
               <span className="text-[#c5a880] text-2xl leading-none mb-4" style={{ fontFamily: 'Georgia, serif' }}>&ldquo;</span>
