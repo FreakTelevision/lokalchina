@@ -183,8 +183,8 @@ async function main() {
       difficulty: "moderate",
       pricePerPerson: 2523,
       currency: "USD",
-      descriptionEn: "Follow the Destined One through 1,500 years of Chinese sacred architecture. From the colossal Buddhas of Yungang to the floating sculptures of Xiaoxitian, this is the definitive pilgrimage for gamers and heritage travelers — led by a former archaeologist who has played the game and studied every beam of every temple.",
-      descriptionZh: "追随天命人穿越1500年的中国古建圣地。从云冈的巨佛到小西天的悬塑绝唱，这是游戏玩家与文化遗产爱好者的终极朝圣之旅——由既玩过游戏又研究过中国建筑史的前考古学家带队。",
+      descriptionEn: "Follow the Destined One through 1,500 years of Chinese sacred architecture. This 6-day curated route covers 10 hand-picked S-tier sites — from the colossal Buddhas of Yungang to the floating sculptures of Xiaoxitian — not all 27 game locations (that takes 12+ days). Led by a former archaeologist who has played the game and studied every beam of every temple.",
+      descriptionZh: "追随天命人穿越1500年的中国古建圣地。这条6天精选路线涵盖10个S级核心取景地——从云冈巨佛到小西天悬塑——并非全部27个地点（全部走完需12天以上）。由既玩过游戏又研究过中国建筑史的前考古学家带队。",
       includedItems: [
         "Former archaeologist guide (English-speaking, 6 full days)",
         "Private SUV with driver (all fuel, tolls, parking, driver lodging included)",

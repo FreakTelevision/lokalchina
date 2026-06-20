@@ -7,6 +7,7 @@ import ShanxiBookingSidebar from "@/components/routes/ShanxiBookingSidebar";
 import { RouteItinerary } from "@/components/routes/route-itinerary";
 import { RoutePricing } from "@/components/routes/route-pricing";
 import { StarRating } from "@/components/shared/star-rating";
+import { Star } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -112,6 +113,21 @@ export default async function RouteDetailPage({ params }: RouteDetailPageProps) 
           </div>
 
           <Separator />
+
+          {/* Featured Review (Shanxi only) */}
+          {isShanxi && (
+            <div className="bg-[#f9f9fb] rounded-xl p-5 border border-gray-100 space-y-3">
+              <div className="flex items-center gap-1.5">
+                {[...Array(5)].map((_, i) => (<Star key={i} className="w-3.5 h-3.5 fill-[#c5a880] stroke-none" />))}
+                <span className="text-xs font-semibold text-gray-800 ml-1">5.0</span>
+                <span className="text-[11px] text-gray-400 font-light">(Verified Explorer)</span>
+              </div>
+              <p className="text-[12px] md:text-[13px] text-gray-700 font-normal leading-relaxed italic">
+                &ldquo;An incredible pilgrimage. Our guide provided a masterclass breakdown, seamlessly overlaying the exact shrines and architectural masterpieces featured in Black Myth: Wukong with their real Tang and Song Dynasty history.&rdquo;
+              </p>
+              <div className="text-[10px] tracking-widest text-[#c5a880] uppercase font-light">&mdash; Edward, United Kingdom</div>
+            </div>
+          )}
 
           {/* Tabs Section */}
           <Tabs defaultValue="itinerary">
