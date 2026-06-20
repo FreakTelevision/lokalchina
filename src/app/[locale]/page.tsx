@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
 import { User, Phone, Globe, ArrowRight, ChevronDown } from 'lucide-react';
 import WhyLokalChina from '@/components/WhyLokalChina';
+import Testimonials from '@/components/Testimonials';
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -168,6 +169,7 @@ export default async function HomePage({ params }: PageProps) {
       </section>
 
       <WhyLokalChina />
+      <Testimonials />
     </div>
   );
 }
