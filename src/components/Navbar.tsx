@@ -11,6 +11,8 @@ export default function Navbar({ locale }: { locale: string }) {
     { code: 'en', label: 'English' },
     { code: 'fr', label: 'Français' },
     { code: 'de', label: 'Deutsch' },
+    { code: 'ja', label: '日本語' },
+    { code: 'ko', label: '한국어' },
     { code: 'nl', label: 'Nederlands' },
   ];
 

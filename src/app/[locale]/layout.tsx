@@ -39,7 +39,7 @@ const mtBodySans = Plus_Jakarta_Sans({
   weight: ["300", "400"],
 });
 
-const locales = ["en", "fr", "de", "nl"];
+const locales = ["en", "fr", "de", "ja", "ko", "nl"];
 
 export const metadata: Metadata = {
   title: {

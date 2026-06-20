@@ -21,6 +21,8 @@ export default async function HomePage({ params }: PageProps) {
     { code: 'en', label: 'English' },
     { code: 'fr', label: 'Français' },
     { code: 'de', label: 'Deutsch' },
+    { code: 'ja', label: '日本語' },
+    { code: 'ko', label: '한국어' },
     { code: 'nl', label: 'Nederlands' },
   ];
 
@@ -47,9 +49,10 @@ export default async function HomePage({ params }: PageProps) {
           {/* Center: Nav */}
           <nav className="hidden md:flex items-center gap-12 text-[11px] tracking-[0.25em] font-light uppercase text-gray-200">
             <Link href={`/${locale}/routes`} className="hover:text-white transition-colors">{t('navRoutes')}</Link>
-            <div className="relative group cursor-pointer py-2">
+            <div className="relative group cursor-pointer py-3">
               <span className="hover:text-white transition-colors">{t('navGuides')}</span>
-              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1 w-64 bg-[#0b0c10]/95 backdrop-blur-md border border-white/10 p-2 flex flex-col opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 z-50 shadow-2xl">
+              <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-150 z-50">
+                <div className="w-64 bg-[#0b0c10]/95 backdrop-blur-md border border-white/10 p-2 flex flex-col shadow-2xl">
                 <Link href={`/${locale}/services/bespoke-travel`} className="text-[10px] tracking-widest uppercase font-light text-gray-300 hover:text-white hover:bg-white/5 px-4 py-3 transition-all">Bespoke Travel</Link>
                 <Link href={`/${locale}/services/medical-concierge`} className="text-[10px] tracking-widest uppercase font-light text-gray-300 hover:text-white hover:bg-white/5 px-4 py-3 transition-all border-t border-white/5">Medical Concierge</Link>
                 <Link href={`/${locale}/services/enterprise-sourcing`} className="text-[10px] tracking-widest uppercase font-light text-gray-300 hover:text-white hover:bg-white/5 px-4 py-3 transition-all border-t border-white/5">Enterprise Sourcing &amp; Expeditions</Link>
