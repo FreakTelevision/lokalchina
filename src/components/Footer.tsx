@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Instagram, Facebook, Youtube, Linkedin } from 'lucide-react';
+import { Camera, MessageCircle, Video, Briefcase } from 'lucide-react';
 
 export default function Footer({ locale }: { locale: string }) {
   const pathname = usePathname();
@@ -41,10 +41,10 @@ export default function Footer({ locale }: { locale: string }) {
           </form>
 
           <div className="flex items-center gap-4 pt-4">
-            <a href="#" className="p-2 rounded-full border border-white/10 hover:border-white text-gray-400 hover:text-white transition-all"><Instagram className="w-4 h-4" /></a>
-            <a href="#" className="p-2 rounded-full border border-white/10 hover:border-white text-gray-400 hover:text-white transition-all"><Facebook className="w-4 h-4" /></a>
-            <a href="#" className="p-2 rounded-full border border-white/10 hover:border-white text-gray-400 hover:text-white transition-all"><Youtube className="w-4 h-4" /></a>
-            <a href="#" className="p-2 rounded-full border border-white/10 hover:border-white text-gray-400 hover:text-white transition-all"><Linkedin className="w-4 h-4" /></a>
+            <a href="#" className="p-2 rounded-full border border-white/10 hover:border-white text-gray-400 hover:text-white transition-all"><Camera className="w-4 h-4" /></a>
+            <a href="#" className="p-2 rounded-full border border-white/10 hover:border-white text-gray-400 hover:text-white transition-all"><MessageCircle className="w-4 h-4" /></a>
+            <a href="#" className="p-2 rounded-full border border-white/10 hover:border-white text-gray-400 hover:text-white transition-all"><Video className="w-4 h-4" /></a>
+            <a href="#" className="p-2 rounded-full border border-white/10 hover:border-white text-gray-400 hover:text-white transition-all"><Briefcase className="w-4 h-4" /></a>
           </div>
         </div>
 
