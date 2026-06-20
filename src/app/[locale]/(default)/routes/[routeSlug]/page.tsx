@@ -4,6 +4,7 @@ import { getRouteBySlug } from "@/lib/queries";
 import { RouteGallery } from "@/components/routes/route-gallery";
 import ShanxiRouteHero from "@/components/routes/ShanxiRouteHero";
 import ShanxiIncludedExcluded from "@/components/routes/ShanxiIncludedExcluded";
+import ShanxiOverview from "@/components/routes/ShanxiOverview";
 import ShanxiBookingSidebar from "@/components/routes/ShanxiBookingSidebar";
 import { RouteItinerary } from "@/components/routes/route-itinerary";
 import { RoutePricing } from "@/components/routes/route-pricing";
@@ -244,12 +245,16 @@ export default async function RouteDetailPage({ params }: RouteDetailPageProps) 
 
           {/* Overview (below tabs) */}
           <Separator />
+          {isShanxi ? (
+            <ShanxiOverview />
+          ) : (
           <div className="prose prose-slate max-w-none">
             <h2 className="text-xl font-bold mb-3">{t("overview")}</h2>
             <p className="text-muted-foreground leading-relaxed">
               {locale === "zh" ? route.descriptionZh : route.descriptionEn}
             </p>
           </div>
+          )}
         </div>
 
         {/* Sidebar: Booking Widget */}
