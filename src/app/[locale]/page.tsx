@@ -103,8 +103,8 @@ export default async function HomePage({ params }: PageProps) {
             <p className="text-base md:text-[19px] font-light leading-[1.85] text-[#222] tracking-wide max-w-3xl mx-auto" style={{ fontFamily: 'var(--font-mt-body)' }}>
               The world is vast, full of wonders. But today&apos;s traveler is often overwhelmed by predictable, template itineraries. You are rarely asked <span className="italic font-normal text-black tracking-normal md:whitespace-nowrap">how you truly wish to experience it.</span>
             </p>
-            <p className="text-base md:text-[19px] font-light leading-[1.85] text-[#444] tracking-wide max-w-3xl mx-auto" style={{ fontFamily: 'var(--font-mt-body)' }}>
-              <span className="font-normal text-black">LokalChina</span> is a private curation network. We bypass the templates. Whether you are seeking immersive cultural masterclasses, rugged untamed expeditions, or discrete local access, we match discerning pioneers with on-the-ground fixers who unlock the real China.
+            <p className="text-sm md:text-[15px] font-light leading-[2] text-[#999] tracking-wide max-w-xl mx-auto" style={{ fontFamily: 'var(--font-mt-body)' }}>
+              We connect you with vetted private fixers — for expeditions, medical access, and sourcing — so you experience China on your own terms, not a tour operator&apos;s.
             </p>
           </div>
           <div className="mt-14">
