@@ -7,6 +7,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/sonner";
 import { SessionProvider } from "@/components/layout/session-provider";
 import { BookingProvider } from "@/store/booking-context";
+import { CurrencyProvider } from "@/store/currency-context";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import "../globals.css";
@@ -69,11 +70,13 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages} locale={locale}>
           <SessionProvider>
             <TooltipProvider>
+              <CurrencyProvider locale={locale}>
               <BookingProvider>
                 <Header />
                 <main className="flex-1">{children}</main>
                 <Footer locale={locale} />
               </BookingProvider>
+            </CurrencyProvider>
               <Toaster />
             </TooltipProvider>
           </SessionProvider>

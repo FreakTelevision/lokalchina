@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
-import { User, Phone, Globe, ArrowRight } from 'lucide-react';
+import { User, Phone, Globe, ArrowRight, ChevronDown } from 'lucide-react';
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -17,9 +17,12 @@ export default async function HomePage({ params }: PageProps) {
     { slug: "yiwu-yongkang-sourcing", days: "3 NIGHTS", subtitle: "ZHEJIANG, CHINA", title: "THE SOURCING EXPEDITION", image: "https://images.pexels.com/photos/30371604/pexels-photo-30371604.jpeg?auto=format&fit=crop&q=80&w=800" }
   ];
 
-  const locales = ['en', 'fr', 'de', 'nl'];
-  const localeLabels: Record<string, string> = { en: 'EN', fr: 'FR', de: 'DE', nl: 'NL' };
-  const nextLocale = locales[(locales.indexOf(locale) + 1) % locales.length];
+  const allLocales = [
+    { code: 'en', label: 'English' },
+    { code: 'fr', label: 'Français' },
+    { code: 'de', label: 'Deutsch' },
+    { code: 'nl', label: 'Nederlands' },
+  ];
 
   return (
     <div className="bg-[#0b0c10] text-white min-h-screen font-sans antialiased selection:bg-white selection:text-black">
@@ -50,10 +53,24 @@ export default async function HomePage({ params }: PageProps) {
 
           {/* Right: Actions */}
           <div className="flex items-center justify-end gap-6">
-            <Link href={`/${nextLocale}`} className="flex items-center gap-1.5 text-[11px] tracking-wider text-gray-300 hover:text-white transition-colors font-light uppercase">
-              <Globe className="w-3.5 h-3.5 stroke-[1.5]" />
-              <span>{localeLabels[locale] || 'EN'}</span>
-            </Link>
+            <div className="relative group">
+              <button className="flex items-center gap-1.5 text-[11px] tracking-wider text-gray-300 hover:text-white transition-colors font-light uppercase">
+                <Globe className="w-3.5 h-3.5 stroke-[1.5]" />
+                <span>{allLocales.find(l => l.code === locale)?.label?.slice(0,2).toUpperCase() || 'EN'}</span>
+                <ChevronDown className="w-3 h-3 opacity-50" />
+              </button>
+              <div className="absolute right-0 top-full mt-2 bg-black/90 backdrop-blur-md border border-white/10 rounded-sm py-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 min-w-[130px] z-50">
+                {allLocales.map((l) => (
+                  <Link
+                    key={l.code}
+                    href={`/${l.code}`}
+                    className={`block px-4 py-2 text-[11px] tracking-wider uppercase transition-colors ${l.code === locale ? 'text-white' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
+                  >
+                    {l.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
             <a href="tel:+8618500523409" className="hidden lg:flex items-center gap-2 text-[11px] tracking-wider text-gray-300 hover:text-white transition-colors font-light">
               <Phone className="w-3 h-3 stroke-[1.5]" />
               <span>+86 185 005 23409</span>
