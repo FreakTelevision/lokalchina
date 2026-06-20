@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
 import { User, Phone, Globe, ArrowRight, ChevronDown } from 'lucide-react';
+import WhyLokalChina from '@/components/WhyLokalChina';
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -136,6 +137,9 @@ export default async function HomePage({ params }: PageProps) {
           </div>
         </div>
       </section>
+
+      {/* WHY LOKALCHINA */}
+      <WhyLokalChina />
 
       {/* FEATURED ROUTES */}
       <section className="bg-[#121318] py-24 px-6 md:py-32 border-t border-white/5 overflow-hidden">
