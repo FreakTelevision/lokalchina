@@ -21,12 +21,18 @@ export default function ShanxiBookingSidebar() {
       <div className="space-y-3">
         <div>
           <label className="text-xs font-medium mb-1 block">Start Date</label>
-          <input type="date" value={date} onChange={(e) => setDate(e.target.value)} className="w-full border rounded-lg px-3 py-2 text-sm" />
+          <input
+            type="text"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+            placeholder="MM/DD/YYYY"
+            className="w-full border rounded-lg px-3 py-2 text-sm"
+          />
         </div>
         <div>
-          <label className="text-xs font-medium mb-1 block">Travelers</label>
+          <label className="text-xs font-medium mb-1 block">Number of Travelers</label>
           <select value={travelers} onChange={(e) => setTravelers(Number(e.target.value))} className="w-full border rounded-lg px-3 py-2 text-sm">
-            {[1,2,3,4].map(n => <option key={n} value={n}>{n} traveler{n>1?'s':''}</option>)}
+            {[1,2,3,4].map(n => <option key={n} value={n}>{n} {n === 1 ? 'Traveler' : 'Travelers'}</option>)}
           </select>
         </div>
       </div>
@@ -38,10 +44,17 @@ export default function ShanxiBookingSidebar() {
 
       <button className="w-full bg-primary text-primary-foreground py-3 rounded-lg text-sm font-semibold hover:opacity-90">Book Now</button>
 
+      <div className="text-center">
+        <a href="/en/contact" className="text-[11px] text-muted-foreground hover:text-primary underline underline-offset-2 transition-colors">
+          Want a custom itinerary? Enquire here
+        </a>
+      </div>
+
       <div className="flex items-center gap-2 justify-center text-xs text-muted-foreground">
         <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
         <span>Free cancellation within 72 hours</span>
       </div>
     </div>
   );
+}
 }

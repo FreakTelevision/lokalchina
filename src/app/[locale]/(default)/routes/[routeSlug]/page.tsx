@@ -7,7 +7,7 @@ import ShanxiBookingSidebar from "@/components/routes/ShanxiBookingSidebar";
 import { RouteItinerary } from "@/components/routes/route-itinerary";
 import { RoutePricing } from "@/components/routes/route-pricing";
 import { StarRating } from "@/components/shared/star-rating";
-import { Star } from "lucide-react";
+import { Star, Settings2 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -63,7 +63,7 @@ export default async function RouteDetailPage({ params }: RouteDetailPageProps) 
 
           {/* Title & Meta */}
           <div>
-            <div className="flex flex-wrap gap-2 mb-3">
+            <div className="flex flex-wrap gap-2 mb-3 items-center">
               {destination && (
                 <Badge variant="secondary" className="gap-1">
                   <MapPin className="h-3 w-3" />
@@ -75,6 +75,10 @@ export default async function RouteDetailPage({ params }: RouteDetailPageProps) 
                   {locale === "zh" ? theme.labelZh : theme.labelEn}
                 </Badge>
               )}
+              <Link href={`/${locale}/contact`} className="inline-flex items-center gap-1 text-[11px] text-muted-foreground hover:text-primary transition-colors ml-2">
+                <Settings2 className="h-3.5 w-3.5" />
+                <span className="underline underline-offset-2">Customize this route</span>
+              </Link>
             </div>
 
             <h1 className="text-3xl md:text-4xl font-bold mb-4">
@@ -83,8 +87,8 @@ export default async function RouteDetailPage({ params }: RouteDetailPageProps) 
 
             {/* Rating */}
             <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
-              <StarRating rating={route.averageRating} size="md" showValue />
-              <span>({route.reviewCount} reviews)</span>
+              <StarRating rating={isShanxi ? 5 : route.averageRating} size="md" showValue />
+              <span>({isShanxi ? "1" : route.reviewCount} review{isShanxi ? "" : "s"})</span>
             </div>
 
             {/* Quick Info */}
@@ -105,7 +109,7 @@ export default async function RouteDetailPage({ params }: RouteDetailPageProps) 
               <div className="flex items-center gap-1.5">
                 <Users className="h-4 w-4 text-primary" />
                 <span>
-                  {locale === "zh" ? "最多" : "Max"} <strong>{route.maxGroupSize}</strong>{" "}
+                  {locale === "zh" ? "最多" : "Max"} <strong>{isShanxi ? "4" : route.maxGroupSize}</strong>{" "}
                   {locale === "zh" ? "人" : "people"}
                 </span>
               </div>
