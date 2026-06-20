@@ -15,10 +15,6 @@ export default function SubPageHeader({ locale }: HeaderProps) {
   const currentLocale = useLocale();
   const t = useTranslations('Navigation');
 
-  // Hide on homepage — it has its own dark header built in
-  const isHome = pathname === `/${currentLocale}` || pathname === `/${currentLocale}/`;
-  if (isHome) return null;
-
   const allLocales = [
     { code: 'en', label: 'English' },
     { code: 'fr', label: 'Français' },
