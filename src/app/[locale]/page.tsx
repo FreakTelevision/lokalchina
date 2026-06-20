@@ -99,11 +99,11 @@ export default async function HomePage({ params }: PageProps) {
           <h2 className="text-[11px] tracking-[0.26em] uppercase text-[#222] mb-10 antialiased" style={{ fontFamily: 'var(--font-mt-title)' }}>
             Every Journey Starts with a Feeling
           </h2>
-          <div className="font-mt-body space-y-10 antialiased" style={{ fontFamily: 'var(--font-mt-body)' }}>
-            <p className="text-base md:text-[19px] font-light leading-[1.85] text-[#222] tracking-wide max-w-3xl mx-auto">
+          <div className="space-y-10 antialiased" style={{ fontFamily: 'var(--font-mt-body)' }}>
+            <p className="text-base md:text-[19px] font-light leading-[1.85] text-[#222] tracking-wide max-w-3xl mx-auto" style={{ fontFamily: 'var(--font-mt-body)' }}>
               The world is vast, full of wonders. But today&apos;s traveler is often overwhelmed by predictable, template itineraries. You are rarely asked <span className="italic font-normal text-black tracking-normal md:whitespace-nowrap">how you truly wish to experience it.</span>
             </p>
-            <p className="text-sm md:text-[16px] font-light leading-[1.85] text-[#444] tracking-wide max-w-3xl mx-auto">
+            <p className="text-base md:text-[19px] font-light leading-[1.85] text-[#444] tracking-wide max-w-3xl mx-auto" style={{ fontFamily: 'var(--font-mt-body)' }}>
               <span className="font-normal text-black">LokalChina</span> is a private curation network. We bypass the templates. Whether you are seeking immersive cultural masterclasses, rugged untamed expeditions, or discrete local access, we match discerning pioneers with on-the-ground fixers who unlock the real China.
             </p>
           </div>
