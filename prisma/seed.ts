@@ -236,8 +236,8 @@ async function main() {
     ]],
     [route3.id, [
       "/images/pexels-ray-feng-204755709-12035287.jpg",
-      "/images/pexels-lwr1999-38098072.jpg",
-      "/images/pexels-lwr1999-38098073.jpg",
+      "/images/pexels-neko-170431012-32762553.jpg",
+      "/images/pexels-king-siberia-1123639-2247216.jpg",
     ]],
   ];
   for (const [routeId, images] of routeImages) {

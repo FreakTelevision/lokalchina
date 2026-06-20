@@ -4,9 +4,9 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 
 const images = [
-  { src: "/images/pexels-lwr1999-38098072.jpg", caption: "Yungang Grottoes" },
-  { src: "/images/pexels-lwr1999-38098073.jpg", caption: "The Hanging Temple" },
-  { src: "/images/pexels-ray-feng-204755709-12035287.jpg", caption: "The Citadel Walls" }
+  { src: "/images/pexels-ray-feng-204755709-12035287.jpg", caption: "The Citadel Walls" },
+  { src: "/images/pexels-neko-170431012-32762553.jpg", caption: "Yungang Grottoes & Shrines" },
+  { src: "/images/pexels-king-siberia-1123639-2247216.jpg", caption: "The Sacred Architecture" }
 ];
 
 export default function ShanxiRouteHero() {
