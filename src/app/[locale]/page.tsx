@@ -55,7 +55,7 @@ export default async function HomePage({ params }: PageProps) {
                 <div className="w-64 bg-[#0b0c10]/95 backdrop-blur-md border border-white/10 p-2 flex flex-col shadow-2xl">
                 <Link href={`/${locale}/services/bespoke-travel`} className="text-[10px] tracking-widest uppercase font-light text-gray-300 hover:text-white hover:bg-white/5 px-4 py-3 transition-all">CUSTOMIZED TRAVEL</Link>
                 <Link href={`/${locale}/services/medical-concierge`} className="text-[10px] tracking-widest uppercase font-light text-gray-300 hover:text-white hover:bg-white/5 px-4 py-3 transition-all border-t border-white/5">MEDICAL COMPANION</Link>
-                <Link href={`/${locale}/services/enterprise-sourcing`} className="text-[10px] tracking-widest uppercase font-light text-gray-300 hover:text-white hover:bg-white/5 px-4 py-3 transition-all border-t border-white/5">SUPPLIERS SOURCING SOLUTIONS</Link>
+                <Link href={`/${locale}/services/enterprise-sourcing`} className="text-[10px] tracking-widest uppercase font-light text-gray-300 hover:text-white hover:bg-white/5 px-4 py-3 transition-all border-t border-white/5">SUPPLIER SOURCING SOLUTIONS</Link>
               </div>
               </div>
             </div>
