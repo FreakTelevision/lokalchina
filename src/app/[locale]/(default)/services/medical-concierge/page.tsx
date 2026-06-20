@@ -9,7 +9,7 @@ export default async function MedicalConciergePage() {
   return (
     <div className={`bg-[#0b0c10] text-white min-h-screen antialiased selection:bg-white selection:text-black ${barlow.variable} ${montserrat.variable}`}>
       <section className="relative min-h-[35vh] flex flex-col justify-center items-center text-center px-6 pt-12 pb-6">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-[0.3em] uppercase text-white mb-4" style={{ fontFamily: 'var(--font-condensed)' }}>MEDICAL CONCIERGE</h1>
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-[0.3em] uppercase text-white mb-4" style={{ fontFamily: 'var(--font-condensed)' }}>MEDICAL COMPANION</h1>
         <p className="text-xs sm:text-sm tracking-[0.2em] text-gray-400 max-w-2xl uppercase font-light">Elite healthcare access. Private escorts. World-class Chinese medicine.</p>
       </section>
       <section className="max-w-3xl mx-auto px-6 pb-32">

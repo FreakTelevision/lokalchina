@@ -33,9 +33,9 @@ export default function Navbar({ locale }: { locale: string }) {
           <span className="hover:text-black transition-colors">Services</span>
           <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-150 z-50">
             <div className="bg-white border border-gray-200 shadow-lg p-1.5 flex flex-col min-w-[200px]">
-              <Link href={`/${locale}/services/bespoke-travel`} className="text-[10px] tracking-widest uppercase font-medium text-gray-700 hover:text-black hover:bg-gray-50 px-4 py-2.5">Bespoke Travel</Link>
-              <Link href={`/${locale}/services/medical-concierge`} className="text-[10px] tracking-widest uppercase font-medium text-gray-500 hover:text-black hover:bg-gray-50 px-4 py-2.5 border-t border-gray-100">Medical Concierge</Link>
-              <Link href={`/${locale}/services/enterprise-sourcing`} className="text-[10px] tracking-widest uppercase font-medium text-gray-500 hover:text-black hover:bg-gray-50 px-4 py-2.5 border-t border-gray-100">Enterprise Sourcing &amp; Expeditions</Link>
+              <Link href={`/${locale}/services/bespoke-travel`} className="text-[10px] tracking-widest uppercase font-medium text-gray-700 hover:text-black hover:bg-gray-50 px-4 py-2.5">CUSTOMIZED TRAVEL</Link>
+              <Link href={`/${locale}/services/medical-concierge`} className="text-[10px] tracking-widest uppercase font-medium text-gray-500 hover:text-black hover:bg-gray-50 px-4 py-2.5 border-t border-gray-100">MEDICAL COMPANION</Link>
+              <Link href={`/${locale}/services/enterprise-sourcing`} className="text-[10px] tracking-widest uppercase font-medium text-gray-500 hover:text-black hover:bg-gray-50 px-4 py-2.5 border-t border-gray-100">SUPPLIERS SOURCING SOLUTIONS</Link>
             </div>
           </div>
         </div>

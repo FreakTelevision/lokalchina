@@ -9,7 +9,7 @@ export default async function EnterpriseSourcingPage() {
   return (
     <div className={`bg-[#0b0c10] text-white min-h-screen antialiased selection:bg-white selection:text-black ${barlow.variable} ${montserrat.variable}`}>
       <section className="relative min-h-[35vh] flex flex-col justify-center items-center text-center px-6 pt-12 pb-6">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-[0.3em] uppercase text-white mb-4" style={{ fontFamily: 'var(--font-condensed)' }}>ENTERPRISE SOURCING</h1>
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-[0.3em] uppercase text-white mb-4" style={{ fontFamily: 'var(--font-condensed)' }}>SUPPLIERS SOURCING SOLUTIONS</h1>
         <p className="text-xs sm:text-sm tracking-[0.2em] text-gray-400 max-w-2xl uppercase font-light">Vetted suppliers. Factory-floor access. The real China supply chain, unlocked.</p>
       </section>
       <section className="max-w-3xl mx-auto px-6 pb-32">

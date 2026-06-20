@@ -53,9 +53,9 @@ export default async function HomePage({ params }: PageProps) {
               <span className="hover:text-white transition-colors">{t('navGuides')}</span>
               <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-150 z-50">
                 <div className="w-64 bg-[#0b0c10]/95 backdrop-blur-md border border-white/10 p-2 flex flex-col shadow-2xl">
-                <Link href={`/${locale}/services/bespoke-travel`} className="text-[10px] tracking-widest uppercase font-light text-gray-300 hover:text-white hover:bg-white/5 px-4 py-3 transition-all">Bespoke Travel</Link>
-                <Link href={`/${locale}/services/medical-concierge`} className="text-[10px] tracking-widest uppercase font-light text-gray-300 hover:text-white hover:bg-white/5 px-4 py-3 transition-all border-t border-white/5">Medical Concierge</Link>
-                <Link href={`/${locale}/services/enterprise-sourcing`} className="text-[10px] tracking-widest uppercase font-light text-gray-300 hover:text-white hover:bg-white/5 px-4 py-3 transition-all border-t border-white/5">Enterprise Sourcing &amp; Expeditions</Link>
+                <Link href={`/${locale}/services/bespoke-travel`} className="text-[10px] tracking-widest uppercase font-light text-gray-300 hover:text-white hover:bg-white/5 px-4 py-3 transition-all">CUSTOMIZED TRAVEL</Link>
+                <Link href={`/${locale}/services/medical-concierge`} className="text-[10px] tracking-widest uppercase font-light text-gray-300 hover:text-white hover:bg-white/5 px-4 py-3 transition-all border-t border-white/5">MEDICAL COMPANION</Link>
+                <Link href={`/${locale}/services/enterprise-sourcing`} className="text-[10px] tracking-widest uppercase font-light text-gray-300 hover:text-white hover:bg-white/5 px-4 py-3 transition-all border-t border-white/5">SUPPLIERS SOURCING SOLUTIONS</Link>
               </div>
               </div>
             </div>
