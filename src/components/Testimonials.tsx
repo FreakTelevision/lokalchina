@@ -33,14 +33,14 @@ export default function Testimonials() {
   return (
     <section className={`w-full bg-white text-[#111215] pb-16 ${montserrat.className}`}>
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 items-start">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
           {reviews.map((item, index) => (
-            <div key={index} className="flex flex-col items-center text-center space-y-4 px-2">
-              <span className="text-[#c5a880] text-2xl leading-none" style={{ fontFamily: 'Georgia, serif' }}>&ldquo;</span>
-              <p className="text-[12px] md:text-[13px] text-gray-800 font-normal leading-relaxed tracking-wide max-w-[220px]">
+            <div key={index} className="flex flex-col items-center text-center px-2 h-full">
+              <span className="text-[#c5a880] text-2xl leading-none mb-4" style={{ fontFamily: 'Georgia, serif' }}>&ldquo;</span>
+              <p className="text-[12px] md:text-[13px] text-gray-800 font-normal leading-relaxed tracking-wide max-w-[220px] flex-1">
                 {item.quote}
               </p>
-              <span className="text-[#c5a880] text-[11px] tracking-widest italic font-light whitespace-nowrap">
+              <span className="text-[#c5a880] text-[11px] tracking-widest italic font-light whitespace-nowrap mt-4">
                 &mdash; {item.author}
               </span>
             </div>
