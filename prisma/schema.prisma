@@ -1,0 +1,265 @@
+// ─── Prisma Schema: ChinaTravel PWA ───
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ─── AUTH (Auth.js v5) ───
+
+model User {
+  id            String       @id @default(cuid())
+  name          String?
+  email         String       @unique
+  emailVerified DateTime?
+  image         String?
+  password      String?              // hashed password for credentials
+  role          String       @default("traveler") // traveler | guide | admin
+  phone         String?
+  nationality   String?
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+
+  accounts      Account[]
+  sessions      Session[]
+  bookings      Booking[]
+  messages      Message[]
+  reviews       Review[]
+
+  guideProfile  GuideProfile?
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+// ─── GUIDES ───
+
+model GuideProfile {
+  id              String   @id @default(cuid())
+  userId          String   @unique
+  slug            String   @unique
+  bio             String
+  bioEn           String?
+  bioZh           String?
+  yearsExperience Int      @default(0)
+  hourlyRate      Decimal  @default(0)
+  dailyRate       Decimal  @default(0)
+  isVerified      Boolean  @default(false)
+  isAvailable     Boolean  @default(true)
+  avatarUrl       String?
+  coverImageUrl   String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  user            User              @relation(fields: [userId], references: [id])
+  guideLanguages  GuideLanguage[]
+  guideRegions    GuideRegion[]
+  guideExpertise  GuideExpertise[]
+  reviews         Review[]
+  availabilities  GuideAvailability[]
+  bookings        Booking[]
+  routeGuides     RouteGuide[]
+}
+
+model GuideLanguage {
+  id             String       @id @default(cuid())
+  guideProfileId String
+  language       String
+  proficiency    String       // native, fluent, conversational
+
+  guideProfile GuideProfile @relation(fields: [guideProfileId], references: [id], onDelete: Cascade)
+
+  @@unique([guideProfileId, language])
+}
+
+model GuideRegion {
+  id             String @id @default(cuid())
+  guideProfileId String
+  region         String
+
+  guideProfile GuideProfile @relation(fields: [guideProfileId], references: [id], onDelete: Cascade)
+
+  @@unique([guideProfileId, region])
+}
+
+model GuideExpertise {
+  id             String @id @default(cuid())
+  guideProfileId String
+  expertise      String
+
+  guideProfile GuideProfile @relation(fields: [guideProfileId], references: [id], onDelete: Cascade)
+
+  @@unique([guideProfileId, expertise])
+}
+
+model GuideAvailability {
+  id             String   @id @default(cuid())
+  guideProfileId String
+  date           DateTime
+  isAvailable    Boolean  @default(true)
+  note           String?
+
+  guideProfile GuideProfile @relation(fields: [guideProfileId], references: [id], onDelete: Cascade)
+
+  @@unique([guideProfileId, date])
+}
+
+// ─── TRAVEL ROUTES ───
+
+model TravelRoute {
+  id              String     @id @default(cuid())
+  slug            String     @unique
+  titleEn         String
+  titleZh         String
+  descriptionEn   String
+  descriptionZh   String
+  destination     String
+  duration        Int
+  theme           String
+  difficulty      String?
+  pricePerPerson  Decimal
+  currency        String     @default("CNY")
+  includedItems   Json
+  excludedItems   Json
+  itinerary       Json
+  faqs            Json?
+  maxGroupSize    Int        @default(6)
+  isActive        Boolean    @default(true)
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+
+  images      RouteImage[]
+  routeGuides RouteGuide[]
+  bookings    Booking[]
+  reviews     Review[]
+}
+
+model RouteImage {
+  id       String     @id @default(cuid())
+  routeId  String
+  url      String
+  altEn    String
+  altZh    String
+  order    Int        @default(0)
+  isCover  Boolean    @default(false)
+
+  travelRoute TravelRoute @relation(fields: [routeId], references: [id], onDelete: Cascade)
+}
+
+model RouteGuide {
+  id             String  @id @default(cuid())
+  routeId        String
+  guideProfileId String
+  isFeatured     Boolean @default(false)
+
+  travelRoute  TravelRoute  @relation(fields: [routeId], references: [id], onDelete: Cascade)
+  guideProfile GuideProfile @relation(fields: [guideProfileId], references: [id], onDelete: Cascade)
+
+  @@unique([routeId, guideProfileId])
+}
+
+// ─── BOOKINGS ───
+
+model Booking {
+  id               String   @id @default(cuid())
+  userId           String
+  routeId          String
+  guideProfileId   String?
+  status           String   @default("pending")
+  startDate        DateTime
+  endDate          DateTime
+  numberOfTravelers Int     @default(1)
+  totalPrice       Decimal
+  currency         String   @default("CNY")
+  stripeSessionId  String?
+  stripePaymentId  String?
+  travelerInfo     Json
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  user         User          @relation(fields: [userId], references: [id])
+  travelRoute  TravelRoute   @relation(fields: [routeId], references: [id])
+  guideProfile GuideProfile? @relation(fields: [guideProfileId], references: [id])
+  messages     Message[]
+  review       Review?
+}
+
+// ─── MESSAGING ───
+
+model Message {
+  id        String   @id @default(cuid())
+  bookingId String
+  senderId  String
+  content   String
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  booking Booking @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  sender  User    @relation(fields: [senderId], references: [id])
+}
+
+// ─── REVIEWS ───
+
+model Review {
+  id             String   @id @default(cuid())
+  userId         String
+  routeId        String?
+  guideProfileId String?
+  bookingId      String   @unique
+  rating         Int
+  title          String?
+  content        String?
+  createdAt      DateTime @default(now())
+
+  user         User          @relation(fields: [userId], references: [id])
+  travelRoute  TravelRoute?  @relation(fields: [routeId], references: [id])
+  guideProfile GuideProfile? @relation(fields: [guideProfileId], references: [id])
+  booking      Booking       @relation(fields: [bookingId], references: [id])
+}
+
+// ─── CONTENT PAGES ───
+
+model PageContent {
+  id        String   @id @default(cuid())
+  slug      String   @unique
+  titleEn   String
+  titleZh   String
+  bodyEn    String
+  bodyZh    String
+  updatedAt DateTime @updatedAt
+}
