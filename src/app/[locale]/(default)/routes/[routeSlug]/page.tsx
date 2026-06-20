@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { getRouteBySlug } from "@/lib/queries";
 import { RouteGallery } from "@/components/routes/route-gallery";
 import ShanxiRouteHero from "@/components/routes/ShanxiRouteHero";
+import ShanxiIncludedExcluded from "@/components/routes/ShanxiIncludedExcluded";
 import ShanxiBookingSidebar from "@/components/routes/ShanxiBookingSidebar";
 import { RouteItinerary } from "@/components/routes/route-itinerary";
 import { RoutePricing } from "@/components/routes/route-pricing";
@@ -151,6 +152,9 @@ export default async function RouteDetailPage({ params }: RouteDetailPageProps) 
 
             {/* Included/Excluded Tab */}
             <TabsContent value="included" className="mt-6">
+              {isShanxi ? (
+                <ShanxiIncludedExcluded />
+              ) : (
               <div className="grid sm:grid-cols-2 gap-6">
                 <div className="bg-green-50 dark:bg-green-950/20 rounded-xl p-5">
                   <h3 className="font-semibold text-green-700 dark:text-green-400 mb-3 flex items-center gap-2">
@@ -179,15 +183,10 @@ export default async function RouteDetailPage({ params }: RouteDetailPageProps) 
                   </ul>
                 </div>
               </div>
+              )}
             </TabsContent>
 
-            {/* Guides Tab */}
-            <TabsContent value="guides" className="mt-6">
-              {route.guides.length === 0 ? (
-                <p className="text-muted-foreground text-center py-8">
-                  {locale === "zh" ? "暂无指定向导" : "No guides assigned yet"}
-                </p>
-              ) : (
+            {/* Guides Tab — REMOVED */}
                 <div className="grid sm:grid-cols-2 gap-4">
                   {route.guides.map((guide) => (
                     <Link
