@@ -14,7 +14,7 @@ export default async function HomePage({ params }: PageProps) {
   const featuredRoutes = [
     { slug: "shanxi-black-myth-pilgrimage", days: "6 NIGHTS", subtitle: "SHANXI, CHINA", title: "THE BLACK MYTH PILGRIMAGE", image: "https://images.pexels.com/photos/33572696/pexels-photo-33572696.jpeg?auto=format&fit=crop&q=80&w=800" },
     { slug: "jingdezhen-wuyuan-ceramics", days: "4 NIGHTS", subtitle: "JIANGXI, CHINA", title: "CERAMICS & ANCIENT AESTHETICS", image: "https://images.pexels.com/photos/15402564/pexels-photo-15402564.jpeg?auto=format&fit=crop&q=80&w=800" },
-    { slug: "yiwu-yongkang-sourcing", days: "3 NIGHTS", subtitle: "ZHEJIANG, CHINA", title: "THE SOURCING EXPEDITION", image: "https://images.pexels.com/photos/30371604/pexels-photo-30371604.jpeg?auto=format&fit=crop&q=80&w=800" }
+    { slug: "yiwu-yongkang-sourcing", days: "5 NIGHTS", subtitle: "ZHEJIANG, CHINA", title: "THE SOURCING EXPEDITION", image: "https://images.pexels.com/photos/30371604/pexels-photo-30371604.jpeg?auto=format&fit=crop&q=80&w=800" }
   ];
 
   const allLocales = [
