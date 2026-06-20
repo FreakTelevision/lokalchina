@@ -235,7 +235,7 @@ async function main() {
       "https://images.unsplash.com/photo-1580674684081-7617fbf3d745?w=1200&h=800&fit=crop",
     ]],
     [route3.id, [
-      "/images/pexels-ray-feng-204755709-12035287.jpg",
+      "/images/pexels-lwr1999-38098072_2.jpg",
       "/images/pexels-neko-170431012-32762553.jpg",
       "/images/pexels-king-siberia-1123639-2247216.jpg",
     ]],
