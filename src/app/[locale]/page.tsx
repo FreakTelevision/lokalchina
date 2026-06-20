@@ -139,6 +139,8 @@ export default async function HomePage({ params }: PageProps) {
         </div>
       </section>
 
+      <Testimonials />
+
       {/* FEATURED ROUTES */}
       <section className="bg-[#121318] py-24 px-6 md:py-32 border-t border-white/5 overflow-hidden">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
@@ -169,7 +171,6 @@ export default async function HomePage({ params }: PageProps) {
       </section>
 
       <WhyLokalChina />
-      <Testimonials />
     </div>
   );
 }
