@@ -54,5 +54,5 @@ export const BOOKING_STATUSES = [
   "pending", "confirmed", "paid", "in_progress", "completed", "cancelled",
 ] as const;
 
-export const CURRENCY = "CNY";
-export const CURRENCY_SYMBOL = "¥";
+export const CURRENCY = "USD";
+export const CURRENCY_SYMBOL = "$";

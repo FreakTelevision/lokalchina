@@ -3,7 +3,8 @@ import { MapPin, Clock, Users } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { StarRating } from "@/components/shared/star-rating";
-import { THEMES, DESTINATIONS, CURRENCY_SYMBOL } from "@/lib/constants";
+import { THEMES, DESTINATIONS } from "@/lib/constants";
+import { currencySymbols, localeCurrencyMap, currencyRates } from "@/store/currency-context";
 
 interface RouteCardProps {
   route: {
@@ -87,7 +88,7 @@ export function RouteCard({ route, locale }: RouteCardProps) {
             </div>
             <div className="text-right">
               <p className="text-lg font-bold text-primary">
-                {CURRENCY_SYMBOL}{route.pricePerPerson.toLocaleString()}
+                {(() => { const curr = localeCurrencyMap[locale] || 'USD'; const rate = currencyRates[curr] || 1; const sym = currencySymbols[curr] || '$'; return sym + Math.round(route.pricePerPerson * rate).toLocaleString(); })()}
               </p>
               <p className="text-xs text-muted-foreground">
                 {locale === "zh" ? "/人起" : "/person"}
