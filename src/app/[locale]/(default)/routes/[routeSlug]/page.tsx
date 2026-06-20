@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { getRouteBySlug } from "@/lib/queries";
 import { RouteGallery } from "@/components/routes/route-gallery";
 import ShanxiRouteHero from "@/components/routes/ShanxiRouteHero";
+import ShanxiRoutePage from "@/components/routes/ShanxiRoutePage";
 import { RouteItinerary } from "@/components/routes/route-itinerary";
 import { RoutePricing } from "@/components/routes/route-pricing";
 import { StarRating } from "@/components/shared/star-rating";
@@ -24,6 +25,10 @@ export default async function RouteDetailPage({ params }: RouteDetailPageProps) 
   const route = await getRouteBySlug(routeSlug);
 
   if (!route) notFound();
+
+  if (routeSlug === "shanxi-black-myth-pilgrimage") {
+    return <ShanxiRoutePage />;
+  }
 
   const destination = DESTINATIONS.find((d) => d.value === route.destination);
   const theme = THEMES.find((t) => t.value === route.theme);
