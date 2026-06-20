@@ -57,6 +57,7 @@ export default async function HomePage({ params }: PageProps) {
                 <Link href={`/${locale}/services/medical-concierge`} className="text-[10px] tracking-widest uppercase font-light text-gray-300 hover:text-white hover:bg-white/5 px-4 py-3 transition-all border-t border-white/5">Medical Concierge</Link>
                 <Link href={`/${locale}/services/enterprise-sourcing`} className="text-[10px] tracking-widest uppercase font-light text-gray-300 hover:text-white hover:bg-white/5 px-4 py-3 transition-all border-t border-white/5">Enterprise Sourcing &amp; Expeditions</Link>
               </div>
+              </div>
             </div>
             <Link href={`/${locale}/about`} className="hover:text-white transition-colors">{t('navAbout')}</Link>
           </nav>
