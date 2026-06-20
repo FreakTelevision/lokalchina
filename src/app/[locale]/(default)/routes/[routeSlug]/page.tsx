@@ -75,9 +75,9 @@ export default async function RouteDetailPage({ params }: RouteDetailPageProps) 
                   {locale === "zh" ? theme.labelZh : theme.labelEn}
                 </Badge>
               )}
-              <Link href={`/${locale}/contact`} className="inline-flex items-center gap-1 text-[11px] text-muted-foreground hover:text-primary transition-colors ml-2">
+              <Link href={`/${locale}/contact`} className="inline-flex items-center gap-1.5 bg-[#f5f5f7] hover:bg-[#e8e8ec] px-3 py-1.5 rounded-full text-[11px] text-gray-700 font-medium transition-colors ml-2">
                 <Settings2 className="h-3.5 w-3.5" />
-                <span className="underline underline-offset-2">Customize this route</span>
+                <span>Customize this route</span>
               </Link>
             </div>
 
@@ -140,7 +140,6 @@ export default async function RouteDetailPage({ params }: RouteDetailPageProps) 
               <TabsTrigger value="included">
                 {locale === "zh" ? "费用" : "Included/Excluded"}
               </TabsTrigger>
-              <TabsTrigger value="guides">{t("assignedGuides")}</TabsTrigger>
               <TabsTrigger value="faqs">FAQ</TabsTrigger>
               <TabsTrigger value="reviews">{t("reviews")}</TabsTrigger>
             </TabsList>
