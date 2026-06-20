@@ -31,7 +31,7 @@ export default function Testimonials() {
   ];
 
   return (
-    <section className={`w-full bg-white text-[#111215] pb-24 ${montserrat.className}`}>
+    <section className={`w-full bg-white text-[#111215] pb-16 ${montserrat.className}`}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 items-start">
           {reviews.map((item, index) => (

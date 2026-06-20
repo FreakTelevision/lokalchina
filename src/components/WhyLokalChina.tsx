@@ -17,7 +17,7 @@ export default function WhyLokalChina() {
   ];
 
   return (
-    <section className={`w-full bg-[#f9f9fb] text-black py-20 ${montserrat.className}`}>
+    <section className={`w-full bg-[#f9f9fb] text-black py-14 ${montserrat.className}`}>
       <div className="max-w-5xl mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-xl md:text-2xl tracking-[0.2em] uppercase font-medium text-black">Why LokalChina?</h2>

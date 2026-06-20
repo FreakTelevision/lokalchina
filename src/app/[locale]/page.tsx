@@ -118,7 +118,7 @@ export default async function HomePage({ params }: PageProps) {
       </section>
 
       {/* BRAND INTRO */}
-      <section className="bg-white text-black py-28 px-6 md:py-36">
+      <section className="bg-white text-black py-16 px-6 md:py-20">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-[11px] tracking-[0.26em] uppercase text-[#222] mb-10 antialiased" style={{ fontFamily: 'var(--font-mt-title)' }}>
             Every Journey Starts with a Feeling
@@ -142,7 +142,7 @@ export default async function HomePage({ params }: PageProps) {
       <Testimonials />
 
       {/* FEATURED ROUTES */}
-      <section className="bg-[#121318] py-24 px-6 md:py-32 border-t border-white/5 overflow-hidden">
+      <section className="bg-[#121318] py-16 px-6 md:py-20 border-t border-white/5 overflow-hidden">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-4 lg:sticky lg:top-24 space-y-4">
             <h2 className="text-3xl md:text-5xl font-extralight tracking-widest uppercase leading-tight" dangerouslySetInnerHTML={{ __html: t('expeditionsHeading') }} />
