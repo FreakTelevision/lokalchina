@@ -1,59 +1,62 @@
-import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { Compass, Calendar, ArrowRight } from 'lucide-react';
+"use client";
 
-export default function ShanxiRouteHero({ locale }: { locale: string }) {
-  const images = [
-    { src: "/images/pexels-ray-feng-204755709-12035287.jpg", alt: "Ancient City Wall during Golden Hour", caption: "The Citadel Walls" },
-    { src: "/images/pexels-lwr1999-38098072.jpg", alt: "Yungang Grottoes Monumental Buddha", caption: "Yungang Grottoes" },
-    { src: "/images/pexels-lwr1999-38098073.jpg", alt: "Hanging Temple Cliffside Architecture", caption: "The Hanging Temple" },
-  ];
+import React, { useState } from 'react';
+import Image from 'next/image';
+
+const images = [
+  { src: "/images/pexels-ray-feng-204755709-12035287.jpg", caption: "The Citadel Walls" },
+  { src: "/images/pexels-lwr1999-38098072.jpg", caption: "Yungang Grottoes" },
+  { src: "/images/pexels-lwr1999-38098073.jpg", caption: "The Hanging Temple" }
+];
+
+export default function ShanxiRouteHero() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const currentImage = images[currentIndex];
 
   return (
-    <section className="w-full bg-[#0b0c10] text-[#f9f9fb] py-24">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="max-w-3xl mb-16 space-y-4">
-          <div className="flex items-center gap-2 text-[#c5a880] text-[11px] tracking-[0.25em] uppercase font-medium">
-            <Compass className="w-3.5 h-3.5 stroke-[1.5]" />
-            <span>Curated Pilgrimage</span>
-          </div>
-          <h2 className="text-2xl md:text-4xl font-light tracking-wide leading-tight text-white">
-            Shanxi — Black Myth: Wukong Ancient Architecture Pilgrimage
-          </h2>
-          <div className="flex items-center gap-4 pt-2 text-gray-400 text-xs tracking-wider">
-            <span className="flex items-center gap-1.5">
-              <Calendar className="w-3.5 h-3.5 text-[#c5a880]" /> 6 Days / 5 Nights
-            </span>
-            <span className="w-1 h-1 rounded-full bg-gray-600" />
-            <span>Immersive Culture &amp; History</span>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          {images.map((img, idx) => (
-            <div key={idx} className="relative aspect-[16/10] w-full overflow-hidden bg-[#16171a] group">
-              <div className="relative w-full h-full transition-all duration-700 ease-out transform group-hover:scale-105 brightness-[92%] contrast-[105%] saturate-[85%]">
-                <Image src={img.src} alt={img.alt} fill sizes="(max-w-768px) 100vw, 33vw" className="object-cover" priority={idx === 0} />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
-              </div>
-              <div className="absolute bottom-4 left-5 z-10 space-y-1">
-                <span className="text-[10px] text-[#c5a880] tracking-widest uppercase block">0{idx + 1} // CHAPTER</span>
-                <p className="text-xs text-gray-200 tracking-widest font-light uppercase">{img.caption}</p>
-              </div>
+    <div className="space-y-3">
+      {/* Main Image */}
+      <div className="relative aspect-[16/9] rounded-xl overflow-hidden bg-muted group">
+        <Image
+          src={currentImage.src}
+          alt={currentImage.caption}
+          fill
+          className="object-cover"
+        />
+        {/* Navigation arrows */}
+        {images.length > 1 && (
+          <>
+            <button
+              onClick={() => setCurrentIndex(i => i === 0 ? images.length - 1 : i - 1)}
+              className="absolute left-3 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <button
+              onClick={() => setCurrentIndex(i => (i + 1) % images.length)}
+              className="absolute right-3 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+            {/* Dots */}
+            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+              {images.map((_, i) => (
+                <button key={i} onClick={() => setCurrentIndex(i)} className={`w-2 h-2 rounded-full transition-all ${i === currentIndex ? 'bg-white w-4' : 'bg-white/60 hover:bg-white/80'}`} />
+              ))}
             </div>
+          </>
+        )}
+      </div>
+      {/* Thumbnails */}
+      {images.length > 1 && (
+        <div className="flex gap-2 overflow-x-auto pb-1">
+          {images.map((img, i) => (
+            <button key={i} onClick={() => setCurrentIndex(i)} className={`shrink-0 w-20 h-14 rounded-lg overflow-hidden border-2 transition-all ${i === currentIndex ? 'border-primary' : 'border-transparent opacity-60 hover:opacity-100'}`}>
+              <Image src={img.src} alt="" width={80} height={56} className="object-cover w-full h-full" />
+            </button>
           ))}
         </div>
-
-        <div className="flex justify-between items-center pt-6 border-t border-gray-800">
-          <p className="text-[11px] text-gray-400 max-w-md font-light leading-relaxed tracking-wide">
-            Delve deep into the actual wooden structural wonders that inspired the mythical landscape. An exclusive, expert-guided traversal behind the screen.
-          </p>
-          <Link href={`/${locale}/routes/shanxi-black-myth-pilgrimage`} className="flex items-center gap-2 text-white hover:text-[#c5a880] transition-colors duration-300 text-xs tracking-[0.2em] uppercase font-light group">
-            Explore Itinerary <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-          </Link>
-        </div>
-      </div>
-    </section>
+      )}
+    </div>
   );
 }
