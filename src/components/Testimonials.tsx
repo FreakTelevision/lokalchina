@@ -17,7 +17,7 @@ export default function Testimonials() {
       author: "Kenji, Japan"
     },
     {
-      quote: "Instead of tourist traps, I was inside a private heritage temple in Shanxi, drinking tea with a local architect. Beyond the wall.",
+      quote: "Instead of tourist traps, I was inside a private heritage temple in Shanxi, drinking tea with a local architect. Truly unforgettable.",
       author: "Maximilian, Germany"
     },
     {
@@ -31,7 +31,7 @@ export default function Testimonials() {
   ];
 
   return (
-    <section className={`w-full bg-[#f9f9fb] text-[#111215] pb-24 ${montserrat.className}`}>
+    <section className={`w-full bg-white text-[#111215] pb-24 ${montserrat.className}`}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 items-start">
           {reviews.map((item, index) => (
