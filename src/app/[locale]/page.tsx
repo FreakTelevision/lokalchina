@@ -4,6 +4,7 @@ import { getTranslations } from 'next-intl/server';
 import { User, Phone, Globe, ArrowRight, ChevronDown } from 'lucide-react';
 import WhyLokalChina from '@/components/WhyLokalChina';
 import Testimonials from '@/components/Testimonials';
+import ShanxiRouteHero from '@/components/routes/ShanxiRouteHero';
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -169,6 +170,8 @@ export default async function HomePage({ params }: PageProps) {
           </div>
         </div>
       </section>
+
+      <ShanxiRouteHero locale={locale} />
 
       <WhyLokalChina />
     </div>
