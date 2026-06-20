@@ -25,7 +25,7 @@ export default function Testimonials() {
       author: "Chloé, France"
     },
     {
-      quote: "Our guide pointed out every location from the game. The side-by-side comparison booklet made us realize how faithfully the developers recreated these temples.",
+      quote: "Our guide pointed out every location from the Black Myth. This comparison made me realize how faithfully the game developers recreated these temples.",
       author: "Henrik, Sweden"
     },
     {
