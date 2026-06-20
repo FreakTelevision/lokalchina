@@ -20,14 +20,23 @@ export default function Navbar({ locale }: { locale: string }) {
       <div className="flex justify-start">
         <Link href={`/${locale}`} className="flex items-center gap-3 hover:opacity-80 transition-opacity">
           <img src="/map.svg" alt="LokalChina" className="h-6 w-auto" />
-          <span className="font-light text-xs tracking-[0.3em] uppercase hidden sm:inline text-black">LOKALCHINA</span>
+          <span className="font-medium text-xs tracking-[0.3em] uppercase hidden sm:inline text-black">LOKALCHINA</span>
         </Link>
       </div>
 
       {/* Center: Nav */}
-      <nav className="hidden md:flex items-center gap-12 text-[11px] tracking-[0.25em] font-light uppercase text-gray-600">
+      <nav className="hidden md:flex items-center gap-12 text-[11px] tracking-[0.25em] font-medium uppercase text-gray-700">
         <Link href={`/${locale}/routes`} className="hover:text-black transition-colors">Routes</Link>
-        <Link href={`/${locale}/services/bespoke-travel`} className="hover:text-black transition-colors">Services</Link>
+        <div className="relative group cursor-pointer py-3">
+          <span className="hover:text-black transition-colors">Services</span>
+          <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-150 z-50">
+            <div className="bg-white border border-gray-200 shadow-lg p-1.5 flex flex-col min-w-[200px]">
+              <Link href={`/${locale}/services/bespoke-travel`} className="text-[10px] tracking-widest uppercase font-medium text-gray-700 hover:text-black hover:bg-gray-50 px-4 py-2.5">Bespoke Travel</Link>
+              <Link href={`/${locale}/services/medical-concierge`} className="text-[10px] tracking-widest uppercase font-medium text-gray-500 hover:text-black hover:bg-gray-50 px-4 py-2.5 border-t border-gray-100">Medical Concierge</Link>
+              <Link href={`/${locale}/services/enterprise-sourcing`} className="text-[10px] tracking-widest uppercase font-medium text-gray-500 hover:text-black hover:bg-gray-50 px-4 py-2.5 border-t border-gray-100">Enterprise Sourcing &amp; Expeditions</Link>
+            </div>
+          </div>
+        </div>
         <Link href={`/${locale}/about`} className="hover:text-black transition-colors">About</Link>
       </nav>
 
