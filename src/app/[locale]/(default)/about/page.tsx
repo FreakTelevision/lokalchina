@@ -1,58 +1,92 @@
-import { getTranslations } from "next-intl/server";
-import { Compass, Shield, HeartHandshake } from "lucide-react";
+import { Montserrat } from "next/font/google";
 
-export default async function AboutPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
+const montserrat = Montserrat({ subsets: ["latin"], weight: ["300", "400", "500", "600"] });
+
+export default async function AboutPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  const t = await getTranslations("Homepage");
+  const zh = locale === "zh";
 
   return (
-    <div className="container mx-auto px-4 py-16 max-w-4xl">
-      <div className="text-center mb-12">
-        <Compass className="h-12 w-12 mx-auto mb-4 text-primary" />
-        <h1 className="text-4xl font-bold mb-4">
-          {locale === "zh" ? "关于 LokalChina" : "About LokalChina"}
-        </h1>
-        <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-          {locale === "zh"
-            ? "我们致力于为全球旅行者提供最地道的中国体验。"
-            : "We are dedicated to providing the most authentic China experience for travelers worldwide."}
-        </p>
-      </div>
+    <div className={`bg-white min-h-screen py-20 px-6 ${montserrat.className}`}>
+      <div className="max-w-2xl mx-auto">
+        <div className="mb-16 space-y-4">
+          <h1 className="text-3xl font-light tracking-widest uppercase text-black">
+            {zh ? "关于 LokalChina" : "About LokalChina"}
+          </h1>
+          <p className="text-base text-gray-500 leading-relaxed max-w-lg">
+            {zh
+              ? "我们不卖旅行团。我们把真正了解中国的人，带给真正想了解中国的人。"
+              : "We don't sell tour packages. We connect people who truly know China with people who genuinely want to."}
+          </p>
+        </div>
 
-      <div className="prose prose-slate max-w-none">
-        <h2>{locale === "zh" ? "我们的使命" : "Our Mission"}</h2>
-        <p>
-          {locale === "zh"
-            ? "LokalChina 的使命是让每一位来中国的外国游客都能享受到个性化、高质量的旅行体验。我们相信，旅行不只是打卡景点——而是与本地文化的深度连接。"
-            : "LokalChina's mission is to ensure every foreign visitor to China enjoys a personalized, high-quality travel experience. We believe travel is not just about checking off landmarks — it's about deep connections with local culture."}
-        </p>
+        <article className="space-y-12">
+          <div>
+            <h2 className="text-xs tracking-[0.2em] uppercase text-[#c5a880] font-medium mb-4">What We Do</h2>
+            <p className="text-[15px] leading-relaxed text-gray-600">
+              {zh
+                ? "LokalChina 是一个私人策展网络。我们绕过标准化的旅行模板，为每一位客户匹配经过严格甄选的在地专家——无论是深度文化探索、医疗陪同，还是供应链考察，我们确保您接触到的不是旅游大巴的停靠点，而是真实运转的中国。"
+                : "LokalChina is a private curation network. We bypass the standardized travel template and match every client with rigorously vetted on-the-ground experts — whether for deep cultural exploration, medical accompaniment, or supply chain scouting. What you access is not a tour bus stop. It's the real, functioning China."}
+            </p>
+          </div>
 
-        <h2>{locale === "zh" ? "我们的向导" : "Our Guides"}</h2>
-        <p>
-          {locale === "zh"
-            ? "每一位 LokalChina 向导都经过严格的背景审查和多轮面试。他们不仅精通多国语言，更对本地历史、文化、美食有深厚了解。我们只选择那些真正热爱分享、乐于助人的向导。"
-            : "Every LokalChina guide undergoes rigorous background checks and multiple interview rounds. They are not only multilingual but also deeply knowledgeable about local history, culture, and cuisine. We only select guides who genuinely love sharing and helping others."}
-        </p>
+          <div className="grid sm:grid-cols-3 gap-8 pt-4">
+            <div className="space-y-2">
+              <h3 className="text-xs font-semibold tracking-wider uppercase text-black">
+                {zh ? "定制旅行" : "Bespoke Travel"}
+              </h3>
+              <p className="text-sm text-gray-500 leading-relaxed">
+                {zh
+                  ? "私人向导、手作体验、古建朝圣——你的节奏，你的兴趣，你的旅程。"
+                  : "Private guides, hands-on craft, temple pilgrimages — your pace, your interests, your trip."}
+              </p>
+            </div>
+            <div className="space-y-2">
+              <h3 className="text-xs font-semibold tracking-wider uppercase text-black">
+                {zh ? "医疗陪同" : "Medical Companion"}
+              </h3>
+              <p className="text-sm text-gray-500 leading-relaxed">
+                {zh
+                  ? "挂号、翻译、陪同检查——我们不做诊疗，我们让诊疗过程畅通无阻。"
+                  : "Registration, translation, escort — we don't practice medicine, we make accessing it frictionless."}
+              </p>
+            </div>
+            <div className="space-y-2">
+              <h3 className="text-xs font-semibold tracking-wider uppercase text-black">
+                {zh ? "供应链寻源" : "Supplier Sourcing"}
+              </h3>
+              <p className="text-sm text-gray-500 leading-relaxed">
+                {zh
+                  ? "出行前筛选、工厂实地考察、离境后验货——三重防护，杜绝货不对板。"
+                  : "Pre-trip vetting, on-site inspection, post-shipment QC — three layers of protection against bait-and-switch."}
+              </p>
+            </div>
+          </div>
 
-        <h2>{locale === "zh" ? "我们的承诺" : "Our Promise"}</h2>
-        <ul>
-          <li>
-            <strong>{locale === "zh" ? "透明定价" : "Transparent Pricing"}</strong> — {locale === "zh" ? "没有隐藏费用，没有强制购物。" : "No hidden fees, no forced shopping stops."}
-          </li>
-          <li>
-            <strong>{locale === "zh" ? "灵活定制" : "Flexible Customization"}</strong> — {locale === "zh" ? "你的旅行你做主，随时调整行程。" : "Your trip, your rules. Adjust the itinerary anytime."}
-          </li>
-          <li>
-            <strong>{locale === "zh" ? "安全第一" : "Safety First"}</strong> — {locale === "zh" ? "认证向导、合法运营、全程保险。" : "Licensed guides, legal operations, comprehensive insurance."}
-          </li>
-          <li>
-            <strong>24/7 {locale === "zh" ? "客服支持" : "Support"}</strong> — {locale === "zh" ? "中英双语客服随时在线。" : "Bilingual support available anytime."}
-          </li>
-        </ul>
+          <div className="pt-8 border-t border-gray-100">
+            <h2 className="text-xs tracking-[0.2em] uppercase text-[#c5a880] font-medium mb-4">
+              {zh ? "我们的承诺" : "Our Promise"}
+            </h2>
+            <ul className="space-y-3 text-sm text-gray-600 leading-relaxed">
+              <li className="flex items-start gap-2">
+                <span className="text-[#c5a880] mt-0.5">—</span>
+                {zh ? "每一位向导都经过背景审查和多轮面试" : "Every guide undergoes background verification and multiple interview rounds"}
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-[#c5a880] mt-0.5">—</span>
+                {zh ? "价格透明，不设隐藏费用" : "Transparent pricing with zero hidden fees"}
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-[#c5a880] mt-0.5">—</span>
+                {zh ? "行程完全可定制，随时按需调整" : "Fully customizable itineraries, adjusted on the fly"}
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-[#c5a880] mt-0.5">—</span>
+                {zh ? "中文、英文、日文、韩文等多语言支持" : "Support in English, Japanese, Korean, and Chinese"}
+              </li>
+            </ul>
+          </div>
+        </article>
       </div>
     </div>
   );
