@@ -13,7 +13,7 @@ export default function Testimonials() {
       author: "Charles, USA"
     },
     {
-      quote: "Navigating China's apps and payments made me anxious. Their fixer handled every digital barrier smoothly. Pure peace of mind.",
+      quote: "Navigating China's apps and payments used to make me anxious. This time, someone took care of every digital barrier for me — payments, bookings, everything. Pure peace of mind.",
       author: "Chloé, France"
     },
     {
@@ -21,11 +21,11 @@ export default function Testimonials() {
       author: "Maximilian, Germany"
     },
     {
-      quote: "Our guide pointed out every location from the Black Myth. This comparison made me realize how faithfully the game developers recreated these temples.",
+      quote: "My guide showed me exactly where each scene from Black Myth was filmed. Standing inside the real temple, I realized how faithfully the developers had recreated every beam and statue.",
       author: "Henrik, Sweden"
     },
     {
-      quote: "I needed a CT scan in Guangzhou. Their fixer booked the appointment, handled registration, and translated every step. The whole process was seamless.",
+      quote: "I needed a CT scan in Guangzhou. Someone helped me book the appointment, handled the hospital registration, and translated every word at the clinic. I didn't have to worry about a thing.",
       author: "Kenji, Japan"
     }
   ];
