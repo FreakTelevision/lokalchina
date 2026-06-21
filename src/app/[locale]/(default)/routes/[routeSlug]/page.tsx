@@ -10,6 +10,7 @@ import ShanxiOverview from "@/components/routes/ShanxiOverview";
 import ShanxiBookingSidebar from "@/components/routes/ShanxiBookingSidebar";
 import JingdezhenBookingSidebar from "@/components/routes/JingdezhenBookingSidebar";
 import JingdezhenFeaturedReview from "@/components/routes/JingdezhenFeaturedReview";
+import YiwuRoutePage from "@/components/routes/YiwuRoutePage";
 import { RouteItinerary } from "@/components/routes/route-itinerary";
 import { RoutePricing } from "@/components/routes/route-pricing";
 import { StarRating } from "@/components/shared/star-rating";
@@ -40,6 +41,9 @@ export default async function RouteDetailPage({ params }: RouteDetailPageProps) 
 
   const isShanxi = routeSlug === "shanxi-black-myth-pilgrimage";
   const isJingdezhen = routeSlug === "jingdezhen-ceramics" || routeSlug === "jingdezhen-wuyuan-ceramics";
+  const isYiwu = routeSlug === "yiwu-yongkang-sourcing";
+
+  if (isYiwu) return <YiwuRoutePage />;
   const destination = DESTINATIONS.find((d) => d.value === route.destination);
   const theme = THEMES.find((t) => t.value === route.theme);
   const t = await getTranslations("RouteDetail");

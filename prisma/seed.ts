@@ -231,9 +231,9 @@ async function main() {
       "/images/routes/jingdezhen/ceramics-3.jpg",
     ]],
     [route2.id, [
-      "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1200&h=800&fit=crop",
-      "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&h=800&fit=crop",
-      "https://images.unsplash.com/photo-1580674684081-7617fbf3d745?w=1200&h=800&fit=crop",
+      "/images/routes/yiwu/factory-1.jpg",
+      "/images/routes/yiwu/original-yiwu-hub.jpg",
+      "/images/routes/yiwu/factory-3.jpg",
     ]],
     [route3.id, [
       "/images/pexels-lwr1999-38098072_2.jpg",
