@@ -98,7 +98,7 @@ async function main() {
       duration: 4,
       theme: "art",
       difficulty: "easy",
-      pricePerPerson: 1490,
+      pricePerPerson: 2360,
       currency: "USD",
       descriptionEn: "Four immersive days in the world's porcelain capital. Get your hands dirty in a real ceramics studio, meet the international artists who've made Jingdezhen their home, fire your own piece in a traditional wood kiln, and explore 1,000 years of ceramic heritage — all with a bilingual ceramic artist as your private guide.",
       descriptionZh: "四天沉浸世界瓷都。在真实陶艺工作室亲手拉坯，拜访定居景德镇的国际艺术家，在传统木窑中烧制自己的作品，探索千年陶瓷遗产——由双语陶艺家全程私享导览。",

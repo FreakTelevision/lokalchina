@@ -6,6 +6,7 @@ import ShanxiRouteHero from "@/components/routes/ShanxiRouteHero";
 import ShanxiIncludedExcluded from "@/components/routes/ShanxiIncludedExcluded";
 import ShanxiOverview from "@/components/routes/ShanxiOverview";
 import ShanxiBookingSidebar from "@/components/routes/ShanxiBookingSidebar";
+import JingdezhenBookingSidebar from "@/components/routes/JingdezhenBookingSidebar";
 import { RouteItinerary } from "@/components/routes/route-itinerary";
 import { RoutePricing } from "@/components/routes/route-pricing";
 import { StarRating } from "@/components/shared/star-rating";
@@ -25,17 +26,17 @@ interface RouteDetailPageProps {
 
 export default async function RouteDetailPage({ params }: RouteDetailPageProps) {
   const { locale, routeSlug } = await params;
-  const route = await getRouteBySlug(routeSlug);
+  let route = await getRouteBySlug(routeSlug);
+
+  // Fallback: if new Jingdezhen slug not yet in DB, try old one
+  if (!route && routeSlug === "jingdezhen-ceramics") {
+    route = await getRouteBySlug("jingdezhen-wuyuan-ceramics");
+  }
 
   if (!route) notFound();
 
-  // Redirect old Jingdezhen-Wuyuan URL to new ceramics-only URL
-  if (routeSlug === "jingdezhen-wuyuan-ceramics") {
-    redirect(`/${locale}/routes/jingdezhen-ceramics`);
-  }
-
   const isShanxi = routeSlug === "shanxi-black-myth-pilgrimage";
-  const isJingdezhen = routeSlug === "jingdezhen-ceramics";
+  const isJingdezhen = routeSlug === "jingdezhen-ceramics" || routeSlug === "jingdezhen-wuyuan-ceramics";
   const destination = DESTINATIONS.find((d) => d.value === route.destination);
   const theme = THEMES.find((t) => t.value === route.theme);
   const t = await getTranslations("RouteDetail");
@@ -267,6 +268,8 @@ export default async function RouteDetailPage({ params }: RouteDetailPageProps) 
         <div className="lg:col-span-1">
           {isShanxi ? (
             <ShanxiBookingSidebar />
+          ) : isJingdezhen ? (
+            <JingdezhenBookingSidebar />
           ) : (
           <RoutePricing
             routeSlug={route.slug}
