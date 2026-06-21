@@ -225,9 +225,9 @@ async function main() {
   // Add images
   const routeImages: Array<[string, string[]]> = [
     [route1.id, [
-      "/images/jingdezhen-alt-1.jpg",
-      "/images/jingdezhen-alt-4.jpg",
-      "/images/jingdezhen-alt-3.jpg",
+      "/images/routes/jingdezhen/ceramics-1.jpg",
+      "/images/routes/jingdezhen/ceramics-2.jpg",
+      "/images/routes/jingdezhen/ceramics-3.jpg",
     ]],
     [route2.id, [
       "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1200&h=800&fit=crop",
