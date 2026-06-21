@@ -9,6 +9,7 @@ import ShanxiIncludedExcluded from "@/components/routes/ShanxiIncludedExcluded";
 import ShanxiOverview from "@/components/routes/ShanxiOverview";
 import ShanxiBookingSidebar from "@/components/routes/ShanxiBookingSidebar";
 import JingdezhenBookingSidebar from "@/components/routes/JingdezhenBookingSidebar";
+import JingdezhenFeaturedReview from "@/components/routes/JingdezhenFeaturedReview";
 import { RouteItinerary } from "@/components/routes/route-itinerary";
 import { RoutePricing } from "@/components/routes/route-pricing";
 import { StarRating } from "@/components/shared/star-rating";
@@ -129,7 +130,7 @@ export default async function RouteDetailPage({ params }: RouteDetailPageProps) 
 
           <Separator />
 
-          {/* Featured Review (Shanxi only) */}
+          {/* Featured Review (route-specific) */}
           {isShanxi && (
             <div className="bg-[#f9f9fb] rounded-xl p-5 border border-gray-100 space-y-3">
               <div className="flex items-center gap-1.5">
@@ -143,6 +144,7 @@ export default async function RouteDetailPage({ params }: RouteDetailPageProps) 
               <div className="text-[10px] tracking-widest text-[#c5a880] uppercase font-light">&mdash; Edward, United Kingdom</div>
             </div>
           )}
+          {isJingdezhen && <JingdezhenFeaturedReview />}
 
           {/* Tabs Section */}
           <Tabs defaultValue="itinerary">
