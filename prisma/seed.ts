@@ -130,7 +130,7 @@ async function main() {
       duration: 5,
       theme: "business",
       difficulty: "easy",
-      pricePerPerson: 1840,
+      pricePerPerson: 2360,
       currency: "USD",
       descriptionEn: "Your personal sourcing mission across Zhejiang's manufacturing heartland — not a cookie-cutter tour. Before you fly, we vet suppliers matched to your exact product needs. During your stay, our veteran agent guides you through Yiwu's 75,000+ booths and escorts you to handpicked factories in the cities that matter to YOUR business — Yongkang for hardware, Zhuji for socks, Shaoxing for textiles, or wherever your supply chain leads. After you leave, we stay: inspecting your bulk production to ensure what ships matches what you approved. No bait-and-switch. No hidden markups. Just vetted suppliers and verified quality.",
       descriptionZh: "你的专属浙江制造业腹地采购任务——不是千篇一律的旅行团。出发前，我们根据你的产品需求精准筛选供应商。行程中，资深代理带你穿越义乌75,000+个摊位，陪同探访你所在行业的关键制造城市——永康五金、诸暨袜业、绍兴纺织，或你的供应链指向的任何地方。离境后我们仍在：检查你的大货生产，确保发出的货和你确认的样品一致。没有偷工减料，没有隐藏加价。",

@@ -106,7 +106,7 @@ export default function YiwuRoutePage() {
 
           <div className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm sticky top-6 space-y-6">
             <div className="space-y-1">
-              <div className="flex items-baseline gap-1"><span className="text-3xl font-medium text-gray-900">$2,490</span><span className="text-xs text-gray-400">/person</span></div>
+              <div className="flex items-baseline gap-1"><span className="text-3xl font-medium text-gray-900">$2,360</span><span className="text-xs text-gray-400">/person</span></div>
               <p className="text-[10px] text-gray-400 italic">Enterprise private tier</p>
             </div>
             <div className="p-3 bg-gray-50 rounded-xl space-y-1">
