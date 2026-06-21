@@ -124,12 +124,12 @@ export default async function HomePage({ params }: PageProps) {
             EXPLORATION AS IT SHOULD BE
           </h2>
           <div className="w-12 h-[1px] bg-[#c5a880]/60 mx-auto mt-6" />
-          <div className="space-y-5 text-sm md:text-[15px] text-gray-600 font-light leading-relaxed tracking-wide max-w-4xl mx-auto">
+          <div className="space-y-5 text-sm md:text-[15px] text-gray-600 font-light leading-relaxed tracking-wide max-w-5xl mx-auto">
             <p className="text-base md:text-[19px] font-light leading-[1.85] text-[#222] tracking-wide max-w-3xl mx-auto" style={{ fontFamily: 'var(--font-mt-body)' }}>
               China is vast, breathtaking, and endless in its wonders. Yet, travelers are too often confined to predictable checklists — missing the true depth of this extraordinary country. <span className="text-gray-900 font-normal italic ml-1">That is not why you are here.</span>
             </p>
             <p className="text-base md:text-[19px] font-light leading-[1.85] text-[#555] tracking-wide max-w-2xl mx-auto" style={{ fontFamily: 'var(--font-mt-body)' }}>
-              From deeply curated routes to seamless medical accompaniment and secure factory sourcing, we manage the friction before you even arrive. We exist so you can navigate China with absolute clarity, absolute comfort, and the unmistakable feeling of being completely at home.
+              From curated expeditions to medical accompaniment to factory-floor access — we handle the friction before you land, so you move through China with clarity, comfort, and the unmistakable feeling of being home.
             </p>
           </div>
           <div className="pt-10">
