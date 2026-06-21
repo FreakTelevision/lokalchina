@@ -25,6 +25,7 @@ export default async function HomePage({ params }: PageProps) {
     { code: 'de', label: 'Deutsch' },
     { code: 'ja', label: '日本語' },
     { code: 'ko', label: '한국어' },
+    { code: 'ar', label: 'العربية' },
     { code: 'nl', label: 'Nederlands' },
   ];
 

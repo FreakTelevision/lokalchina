@@ -46,7 +46,8 @@ const playfair = Playfair_Display({
   weight: ["400", "500", "600"],
 });
 
-const locales = ["en", "fr", "de", "ja", "ko", "nl"];
+const locales = ["en", "fr", "de", "ja", "ko", "ar", "nl"];
+const rtlLocales = ["ar"];
 
 export const metadata: Metadata = {
   title: {
@@ -71,7 +72,7 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className={`${geistSans.variable} ${geistMono.variable} ${barlowCondensed.variable} ${mtMontserrat.variable} ${mtBodySans.variable} ${playfair.variable} h-full antialiased`}>
+    <html lang={locale} dir={rtlLocales.includes(locale) ? "rtl" : "ltr"} className={`${geistSans.variable} ${geistMono.variable} ${barlowCondensed.variable} ${mtMontserrat.variable} ${mtBodySans.variable} ${playfair.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <NextIntlClientProvider messages={messages} locale={locale}>
           <SessionProvider>

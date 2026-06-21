@@ -2,7 +2,7 @@
 
 import { createContext, useContext, type ReactNode } from "react";
 
-export type Currency = "USD" | "EUR" | "JPY" | "KRW";
+export type Currency = "USD" | "EUR" | "JPY" | "KRW" | "SAR";
 
 export const localeCurrencyMap: Record<string, Currency> = {
   en: "USD",
@@ -10,6 +10,7 @@ export const localeCurrencyMap: Record<string, Currency> = {
   de: "EUR",
   ja: "JPY",
   ko: "KRW",
+  ar: "SAR",
   nl: "EUR",
 };
 
@@ -18,6 +19,7 @@ export const currencySymbols: Record<Currency, string> = {
   EUR: "€",
   JPY: "¥",
   KRW: "₩",
+  SAR: "﷼",
 };
 
 export const currencyRates: Record<Currency, number> = {
@@ -25,6 +27,7 @@ export const currencyRates: Record<Currency, number> = {
   EUR: 0.92,
   JPY: 150,
   KRW: 1350,
+  SAR: 3.75,
 };
 
 const CurrencyContext = createContext<Currency>("USD");
