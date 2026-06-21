@@ -9,6 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { contactSchema } from "@/lib/validations";
+import { submitContactForm } from "@/actions/contact";
 
 export default function ContactPage() {
   const locale = useLocale();
@@ -33,10 +34,15 @@ export default function ContactPage() {
     }
 
     setLoading(true);
-    // TODO: Implement contact form server action
-    await new Promise((r) => setTimeout(r, 1000));
+    const formData = new FormData();
+    formData.set("name", name);
+    formData.set("email", email);
+    formData.set("subject", subject);
+    formData.set("message", message);
+    const res = await submitContactForm(formData);
     setLoading(false);
-    setSent(true);
+    if (res.error) setError(res.error);
+    else setSent(true);
   };
 
   if (sent) {
