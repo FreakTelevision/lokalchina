@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Barlow_Condensed, Montserrat, Plus_Jakarta_Sans } from "next/font/google";
+import { Geist, Geist_Mono, Barlow_Condensed, Montserrat, Plus_Jakarta_Sans, Playfair_Display } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -40,6 +40,12 @@ const mtBodySans = Plus_Jakarta_Sans({
   weight: ["300", "400"],
 });
 
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+});
+
 const locales = ["en", "fr", "de", "ja", "ko", "nl"];
 
 export const metadata: Metadata = {
@@ -65,7 +71,7 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className={`${geistSans.variable} ${geistMono.variable} ${barlowCondensed.variable} ${mtMontserrat.variable} ${mtBodySans.variable} h-full antialiased`}>
+    <html lang={locale} className={`${geistSans.variable} ${geistMono.variable} ${barlowCondensed.variable} ${mtMontserrat.variable} ${mtBodySans.variable} ${playfair.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <NextIntlClientProvider messages={messages} locale={locale}>
           <SessionProvider>

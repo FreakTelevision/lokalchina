@@ -118,22 +118,24 @@ export default async function HomePage({ params }: PageProps) {
       </section>
 
       {/* BRAND INTRO */}
-      <section className="bg-white text-black py-16 px-6 md:py-20">
+      <section className="bg-white text-black py-24 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-[11px] tracking-[0.26em] uppercase text-[#222] mb-10 antialiased" style={{ fontFamily: 'var(--font-mt-title)' }}>
-            Every Journey Starts with a Feeling
+          <h2 className="text-2xl md:text-3xl font-normal tracking-[0.18em] uppercase text-gray-900" style={{ fontFamily: 'var(--font-playfair)' }}>
+            EXPLORATION AS IT SHOULD BE.
           </h2>
-          <div className="space-y-10 antialiased" style={{ fontFamily: 'var(--font-mt-body)' }}>
+          <div className="w-12 h-[1px] bg-[#c5a880]/60 mx-auto mt-6" />
+          <div className="space-y-6 text-sm md:text-[15px] text-gray-600 font-light leading-relaxed tracking-wide max-w-3xl mx-auto">
             <p className="text-base md:text-[19px] font-light leading-[1.85] text-[#222] tracking-wide max-w-3xl mx-auto" style={{ fontFamily: 'var(--font-mt-body)' }}>
-              The world is vast, full of wonders. But today&apos;s traveler is often overwhelmed by predictable, template itineraries. You are rarely asked <span className="italic font-normal text-black tracking-normal md:whitespace-nowrap">how you truly wish to experience it.</span>
+              China is vast, breathtaking, and endless in its wonders. Yet, travelers are too often confined to predictable checklists — missing the true depth of this extraordinary country. <span className="text-gray-900 font-normal italic ml-1">That is not why you are here.</span>
             </p>
             <p className="text-base md:text-[19px] font-light leading-[1.85] text-[#555] tracking-wide max-w-2xl mx-auto" style={{ fontFamily: 'var(--font-mt-body)' }}>
-              We are a private network connecting discerning travelers with on-the-ground fixers — for expeditions, medical access, and direct sourcing — built so you move through China with clarity, not compromise.
+              From deeply curated routes to seamless medical accompaniment and secure factory sourcing, we manage the friction before you even arrive. We exist so you can navigate China with absolute clarity, absolute comfort, and the unmistakable feeling of being completely at home.
             </p>
           </div>
-          <div className="mt-14">
-            <Link href={`/${locale}/contact`} className="inline-flex items-center gap-3 bg-black text-white text-[10px] tracking-[0.2em] uppercase font-medium px-8 py-4 hover:bg-gray-800 transition-colors">
-              Plan Your Journey <ArrowRight className="w-3.5 h-3.5 stroke-[1.5]" />
+          <div className="pt-4">
+            <Link href={`/${locale}/contact`} className="inline-flex items-center gap-3 bg-[#111215] text-white hover:bg-black px-8 py-3.5 text-[11px] font-medium tracking-[0.25em] uppercase transition-all duration-300 shadow-sm group">
+              Plan Your Journey
+              <ArrowRight className="w-3.5 h-3.5 text-gray-400 group-hover:text-white group-hover:translate-x-1 transition-all" />
             </Link>
           </div>
         </div>
