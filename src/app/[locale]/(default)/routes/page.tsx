@@ -1,3 +1,5 @@
+export const revalidate = 3600;
+
 import { Suspense } from "react";
 import { getTranslations } from "next-intl/server";
 import { getRoutes } from "@/lib/queries";

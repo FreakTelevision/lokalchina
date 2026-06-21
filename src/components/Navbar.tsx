@@ -1,12 +1,13 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Globe, User, Phone } from 'lucide-react';
+import { Globe, User, Phone, Menu, X } from 'lucide-react';
 
 export default function Navbar({ locale }: { locale: string }) {
   const pathname = usePathname();
+  const [mobileOpen, setMobileOpen] = useState(false);
   const allLocales = [
     { code: 'en', label: 'English' },
     { code: 'fr', label: 'Français' },
@@ -59,7 +60,23 @@ export default function Navbar({ locale }: { locale: string }) {
           <Phone className="w-3 h-3 stroke-[1.5]" /><span>+86 185 005 23409</span>
         </a>
         <Link href={`/${locale}/auth/login`} className="text-gray-500 hover:text-black transition-colors p-1"><User className="w-4 h-4 stroke-[1.5]" /></Link>
+        {/* Mobile hamburger */}
+        <button className="md:hidden p-1" onClick={() => setMobileOpen(!mobileOpen)}>
+          {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+        </button>
       </div>
+
+      {/* Mobile slide-out menu */}
+      {mobileOpen && (
+        <div className="md:hidden absolute top-full left-0 right-0 bg-white border-b shadow-lg z-50 px-6 py-4 space-y-3">
+          <Link href={`/${locale}/routes`} className="block text-sm font-medium py-2" onClick={() => setMobileOpen(false)}>Routes</Link>
+          <Link href={`/${locale}/services/bespoke-travel`} className="block text-sm font-medium py-2" onClick={() => setMobileOpen(false)}>Services</Link>
+          <Link href={`/${locale}/about`} className="block text-sm font-medium py-2" onClick={() => setMobileOpen(false)}>About</Link>
+          <hr />
+          <Link href={`/${locale}/auth/login`} className="block text-sm py-2 text-gray-500" onClick={() => setMobileOpen(false)}>Log In</Link>
+          <Link href={`/${locale}/contact`} className="block text-sm py-2 text-gray-500" onClick={() => setMobileOpen(false)}>Contact</Link>
+        </div>
+      )}
     </header>
   );
 }

@@ -1,3 +1,5 @@
+export const revalidate = 3600;
+
 import { notFound, redirect } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { getRouteBySlug } from "@/lib/queries";
