@@ -1,72 +1,76 @@
 import { Montserrat } from "next/font/google";
 import Link from "next/link";
+import { MapPin, UserCheck, Shield, Clock } from "lucide-react";
 
 const montserrat = Montserrat({ subsets: ["latin"], weight: ["300", "400", "500", "600"] });
 
+const zh = false; // placeholder — will be dynamic below
+
 export default async function AboutPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  const zh = locale === "zh";
+  const isZh = locale === "zh";
+
+  const t = {
+    heroTitle: isZh ? "你的中国，由你决定" : "Your China, on your terms.",
+    heroSub: isZh
+      ? "私人定制行程。深入在地体验。零妥协。"
+      : "Private itineraries. Deep local access. Zero compromise.",
+    body1: isZh
+      ? "大多数人来中国，看到的是旅行团允许他们看到的。我们不一样。LokalChina 的存在，是为了让真正有好奇心的人，触碰到中国最真实的一面——通过那些一辈子只做一件事的人的眼睛。"
+      : "Most people who come to China see what the tour buses allow them to see. We do things differently. LokalChina exists to give genuinely curious people access to the real thing — through the eyes of the people who have spent their lives mastering it.",
+    body2: isZh
+      ? "我们不做规模化。我们每年只服务少量客户，每一位都会匹配到最合适的在地专家——陶艺家、考古学者、采购老手——不是导游，是行家。你在景德镇拉坯的那位老师，已经做了十二年陶瓷。你在山西带你进佛光寺的那位，亲自参与过云冈石窟的发掘。"
+      : "We don't scale. Every year we work with a small number of clients, and every client is matched with the right person — a ceramic artist, an archaeologist, a veteran sourcing agent — not a tour guide, but a practitioner. The person teaching you to throw clay in Jingdezhen has been doing it for twelve years. The person walking you into Foguang Temple helped excavate the Yungang Grottoes.",
+  };
+
+  const differentiators = [
+    { icon: <UserCheck className="w-5 h-5" />, title: isZh ? "行家带队" : "Practitioners, not guides", desc: isZh ? "每一位在地专家都是各自领域的资深从业者" : "Every local expert is a seasoned practitioner in their field" },
+    { icon: <MapPin className="w-5 h-5" />, title: isZh ? "深度定制" : "Built around you", desc: isZh ? "行程完全按照你的节奏、兴趣和预算设计" : "Every itinerary is designed around your pace, interests, and budget" },
+    { icon: <Shield className="w-5 h-5" />, title: isZh ? "出行前后双重保障" : "Before and after you travel", desc: isZh ? "出发前筛选供应商，离境后持续跟进品控" : "We vet before you arrive, and watch your back after you leave" },
+    { icon: <Clock className="w-5 h-5" />, title: isZh ? "全年在线支持" : "365-day support", desc: isZh ? "中、英、日、韩多语种团队随时响应" : "Multilingual team available year-round" },
+  ];
 
   return (
-    <div className={`bg-white min-h-screen py-24 px-6 ${montserrat.className}`}>
-      <div className="max-w-xl mx-auto space-y-16">
+    <div className={`bg-white min-h-screen ${montserrat.className}`}>
+      {/* Hero */}
+      <section className="py-20 md:py-28 px-6 text-center max-w-3xl mx-auto">
+        <h1 className="text-2xl md:text-4xl font-light tracking-wide text-black leading-snug mb-4">
+          {t.heroTitle}
+        </h1>
+        <p className="text-sm md:text-base text-gray-500 font-light tracking-wide max-w-xl mx-auto">
+          {t.heroSub}
+        </p>
+      </section>
 
-        {/* Intro */}
-        <div className="space-y-4">
-          <span className="text-[10px] tracking-[0.25em] uppercase text-[#c5a880] font-medium">About</span>
-          <h1 className="text-2xl font-light tracking-wide text-black leading-snug">
-            {zh ? "我们不卖标准化的旅行团。\n我们卖的是在地的行家、真实的路子、和为你一个人定制的行程。" : "We don't sell generic group tours. We sell on-the-ground expertise, real access, and itineraries built around one person: you."}
-          </h1>
+      {/* Differentiators */}
+      <section className="max-w-4xl mx-auto px-6 pb-20">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+          {differentiators.map((d, i) => (
+            <div key={i} className="text-center space-y-3">
+              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#f5f3f0] text-[#c5a880]">
+                {d.icon}
+              </div>
+              <h3 className="text-xs font-semibold tracking-wider uppercase text-black">{d.title}</h3>
+              <p className="text-xs text-gray-500 leading-relaxed">{d.desc}</p>
+            </div>
+          ))}
         </div>
+      </section>
 
-        {/* Body */}
-        <div className="space-y-8 text-[15px] leading-relaxed text-gray-600">
-          <p>
-            {zh
-              ? "中国太大了，变化太快。大多数外国游客被标准化的旅行产品框死——40人大巴、购物回扣点、永远不变的打卡路线。真正值得去的地方反而没人带路。"
-              : "China is too big, and it's changing too fast. Most foreign visitors get trapped inside a standardized product — 40-person buses, commission-shopping stops, the same checklist everyone else follows. The places actually worth visiting are the ones nobody knows how to reach."}
-          </p>
-          <p>
-            {zh
-              ? "LokalChina 做的事情很朴素：找到每个领域里真正懂行的本地人，然后把他们直接介绍给你。你在景德镇跟的不是导游，是一个做了十二年陶瓷的独立艺术家。你在山西跟的不是司机，是参与过云冈石窟发掘的前考古工作者。你在义乌跟的不是翻译，是帮200多家亚马逊卖家找过工厂的采购老手。"
-              : "What LokalChina does is simple: find the people who actually know what they're doing, in each field, and connect them directly to you. In Jingdezhen, you're not with a tour guide — you're with an independent ceramic artist who's been working clay for twelve years. In Shanxi, you're not with a driver — you're with a former archaeologist who excavated at Yungang. In Yiwu, you're not with a translator — you're with a veteran sourcing agent who's found factories for over 200 Amazon sellers."}
-          </p>
-          <p>
-            {zh
-              ? "我们不做大巴生意。我们做的是信任生意——在你来之前帮你筛选、在你走之后帮你盯货。每一个客户都是一个人对一个人的连接，不是流水线上的一单。"
-              : "We're not in the bus business. We're in the trust business — vetting before you arrive, watching your back after you leave. Every client is a person-to-person connection, not a unit on an assembly line."}
-          </p>
+      {/* Story */}
+      <section className="border-t border-gray-100 py-20 px-6">
+        <div className="max-w-2xl mx-auto space-y-6 text-[15px] leading-relaxed text-gray-600">
+          <p>{t.body1}</p>
+          <p>{t.body2}</p>
         </div>
+      </section>
 
-        {/* Three pillars */}
-        <div className="grid sm:grid-cols-3 gap-10 pt-8 border-t border-gray-100">
-          <div className="space-y-2">
-            <Link href="/en/routes/jingdezhen-ceramics" className="text-xs font-semibold tracking-wider uppercase text-black hover:text-[#c5a880] transition-colors">
-              {zh ? "定制旅行" : "Bespoke Travel"}
-            </Link>
-            <p className="text-sm text-gray-500 leading-relaxed">
-              {zh ? "私人向导、手作工坊、古建朝圣——你的节奏，你的旅程。" : "Private guides, hands-on workshops, temple pilgrimages — your pace, your trip."}
-            </p>
-          </div>
-          <div className="space-y-2">
-            <Link href="/en/services/medical-concierge" className="text-xs font-semibold tracking-wider uppercase text-black hover:text-[#c5a880] transition-colors">
-              {zh ? "医疗陪同" : "Medical Companion"}
-            </Link>
-            <p className="text-sm text-gray-500 leading-relaxed">
-              {zh ? "挂号、翻译、陪同检查——我们不做诊疗，我们让诊疗过程畅通无阻。" : "Registration, translation, clinic escort — we don't practice medicine, we make accessing it seamless."}
-            </p>
-          </div>
-          <div className="space-y-2">
-            <Link href="/en/routes/yiwu-yongkang-sourcing" className="text-xs font-semibold tracking-wider uppercase text-black hover:text-[#c5a880] transition-colors">
-              {zh ? "供应链寻源" : "Supplier Sourcing"}
-            </Link>
-            <p className="text-sm text-gray-500 leading-relaxed">
-              {zh ? "出行前筛选、工厂实地考察、离境后验货——三重防护，杜绝货不对板。" : "Pre-trip vetting, on-site factory visits, post-shipment QC — three shields against bait-and-switch."}
-            </p>
-          </div>
-        </div>
-
-      </div>
+      {/* CTA */}
+      <section className="text-center pb-24 px-6">
+        <Link href="/en/routes" className="inline-flex items-center gap-2 text-xs tracking-[0.2em] uppercase font-medium text-gray-500 hover:text-black transition-colors">
+          {isZh ? "探索路线" : "Explore our routes"} &rarr;
+        </Link>
+      </section>
     </div>
   );
 }
