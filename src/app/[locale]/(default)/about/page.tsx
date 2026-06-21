@@ -18,9 +18,6 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
     body1: isZh
       ? "大多数人来中国，看到的是旅行团允许他们看到的。我们不一样。LokalChina 的存在，是为了让真正有好奇心的人，触碰到中国最真实的一面——通过那些一辈子只做一件事的人的眼睛。"
       : "Most people who come to China see what the tour buses allow them to see. We do things differently. LokalChina exists to give genuinely curious people access to the real thing — through the eyes of the people who have spent their lives mastering it.",
-    body2: isZh
-      ? "我们不做规模化。我们每年只服务少量客户，每一位都会匹配到最合适的在地专家——陶艺家、考古学者、采购老手——不是导游，是行家。你在景德镇拉坯的那位老师，已经做了十二年陶瓷。你在山西带你进佛光寺的那位，亲自参与过云冈石窟的发掘。"
-      : "We don't scale. Every year we work with a small number of clients, and every client is matched with the right person — a ceramic artist, an archaeologist, a veteran sourcing agent — not a tour guide, but a practitioner. The person teaching you to throw clay in Jingdezhen has been doing it for twelve years. The person walking you into Foguang Temple helped excavate the Yungang Grottoes.",
   };
 
   const differentiators = [
@@ -33,7 +30,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
   return (
     <div className={`bg-white min-h-screen ${montserrat.className}`}>
       {/* Hero */}
-      <section className="py-20 md:py-28 px-6 text-center max-w-3xl mx-auto">
+      <section className="pt-16 pb-10 px-6 text-center max-w-3xl mx-auto">
         <h1 className="text-2xl md:text-4xl font-light tracking-wide text-black leading-snug mb-4">
           {t.heroTitle}
         </h1>
@@ -43,7 +40,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
       </section>
 
       {/* Differentiators */}
-      <section className="max-w-4xl mx-auto px-6 pb-20">
+      <section className="max-w-4xl mx-auto px-6 pb-12">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {differentiators.map((d, i) => (
             <div key={i} className="flex flex-col items-center text-center gap-3">
@@ -58,15 +55,14 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
       </section>
 
       {/* Story */}
-      <section className="border-t border-gray-100 py-20 px-6">
-        <div className="max-w-2xl mx-auto space-y-6 text-[15px] leading-relaxed text-gray-600">
+      <section className="border-t border-gray-100 py-12 px-6">
+        <div className="max-w-2xl mx-auto text-[15px] leading-relaxed text-gray-600">
           <p>{t.body1}</p>
-          <p>{t.body2}</p>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="text-center pb-24 px-6">
+      <section className="text-center pb-16 px-6">
         <Link href="/en/routes" className="inline-flex items-center gap-2 text-xs tracking-[0.2em] uppercase font-medium text-gray-500 hover:text-black transition-colors">
           {isZh ? "探索路线" : "Explore our routes"} &rarr;
         </Link>
