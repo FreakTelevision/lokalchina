@@ -81,14 +81,14 @@ export function RouteCard({ route, locale }: RouteCardProps) {
 
           <div className="flex items-center justify-between pt-1">
             <div className="flex items-center gap-1.5">
-              <StarRating rating={route.slug === 'shanxi-black-myth-pilgrimage' ? 5 : route.averageRating} size="sm" />
+              <StarRating rating={route.slug === 'shanxi-black-myth-pilgrimage' || route.slug === 'yiwu-yongkang-sourcing' ? 5 : route.averageRating} size="sm" />
               <span className="text-xs text-muted-foreground">
-                ({route.slug === 'shanxi-black-myth-pilgrimage' ? 1 : route.reviewCount})
+                ({route.slug === 'shanxi-black-myth-pilgrimage' || route.slug === 'yiwu-yongkang-sourcing' ? 1 : route.reviewCount})
               </span>
             </div>
             <div className="text-right">
               <p className="text-lg font-bold text-primary">
-                {(() => { const curr = localeCurrencyMap[locale] || 'USD'; const rate = currencyRates[curr] || 1; const sym = currencySymbols[curr] || '$'; const isShanxi = route.slug === 'shanxi-black-myth-pilgrimage'; return (isShanxi ? 'From ' : '') + sym + Math.round(route.pricePerPerson * rate).toLocaleString(); })()}
+                {(() => { const curr = localeCurrencyMap[locale] || 'USD'; const rate = currencyRates[curr] || 1; const sym = currencySymbols[curr] || '$'; const hasTieredPricing = route.slug === 'shanxi-black-myth-pilgrimage' || route.slug === 'yiwu-yongkang-sourcing'; return (hasTieredPricing ? 'From ' : '') + sym + Math.round(route.pricePerPerson * rate).toLocaleString(); })()}
               </p>
               <p className="text-xs text-muted-foreground">
                 {locale === "zh" ? "/人起" : "/person"}
