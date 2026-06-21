@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Barlow_Condensed, Montserrat, Plus_Jakarta_Sans } fr
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
+import { Analytics } from "@vercel/analytics/react";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/sonner";
 import { SessionProvider } from "@/components/layout/session-provider";
@@ -76,6 +77,7 @@ export default async function LocaleLayout({
               </BookingProvider>
             </CurrencyProvider>
               <Toaster />
+              <Analytics />
             </TooltipProvider>
           </SessionProvider>
         </NextIntlClientProvider>
