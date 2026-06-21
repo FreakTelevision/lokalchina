@@ -88,32 +88,31 @@ async function main() {
     },
   });
 
-  // ═══════════ ROUTE 1: Jingdezhen + Wuyuan ═══════════
+  // ═══════════ ROUTE 1: Jingdezhen (3 DAYS, CERAMICS ONLY) ═══════════
   const route1 = await prisma.travelRoute.create({
     data: {
-      slug: "jingdezhen-wuyuan-ceramics",
-      titleEn: "Jingdezhen & Wuyuan — Hands-on Ceramics & Aesthetics, 4 Days",
-      titleZh: "景德镇+婺源——手作陶瓷与徽派美学，4日",
+      slug: "jingdezhen-ceramics",
+      titleEn: "Jingdezhen — Hands-on Ceramics & Kiln Heritage, 3 Days",
+      titleZh: "景德镇——手作陶瓷与千年窑火，3日",
       destination: "jingdezhen",
-      duration: 4,
+      duration: 3,
       theme: "art",
       difficulty: "easy",
-      pricePerPerson: 1990,
+      pricePerPerson: 1390,
       currency: "USD",
-      descriptionEn: "Immerse yourself in the world's porcelain capital. Get your hands dirty in a real ceramics studio, meet the international artists who've made Jingdezhen their home, explore ancient kiln sites, then unwind in Wuyuan's timeless Hui-style villages — the most photographed countryside in China.",
-      descriptionZh: "沉浸在世界瓷都。在真实的陶艺工作室里亲手拉坯，认识定居景德镇的国际艺术家，探访千年古窑遗址，然后在婺源仿佛穿越时空的徽派古村落中放松身心——中国最美的乡村。",
-      includedItems: ["Private ceramic artist guide (English-speaking, 4 full days)", "Studio clay & materials fee + kiln firing", "International shipping of your finished piece", "Transport Jingdezhen ↔ Wuyuan (private car)", "3 nights: 2 at Taoxichuan Hotel (David Chipperfield design) + 1 at Wuyuan Skywells (300-year-old mansion, Michelin-listed)", "Daily breakfast + 3 specialty lunches + 1 welcome dinner", "All museum & scenic area tickets"],
-      excludedItems: ["International shipping of ceramics", "Dinners (guide recommendations provided)", "Personal expenses", "Travel insurance"],
+      descriptionEn: "Immerse yourself in the world's porcelain capital for three uninterrupted days. Get your hands dirty in a real ceramics studio, meet the international artists who've made Jingdezhen their home, fire your own piece in a traditional kiln, and explore 1,000 years of ceramic heritage — all with a bilingual ceramic artist as your private guide.",
+      descriptionZh: "三天沉浸世界瓷都。在真实陶艺工作室亲手拉坯，拜访定居景德镇的国际艺术家，在传统窑炉中烧制自己的作品，探索千年陶瓷遗产——由双语陶艺家全程私享导览。",
+      includedItems: ["Private ceramic artist guide (English-speaking, 3 full days)", "Studio clay & materials fee + kiln firing", "International shipping of your finished piece", "3 nights at Taoxichuan Hotel (David Chipperfield design)", "Daily breakfast + 2 specialty lunches + 1 welcome dinner", "All museum & workshop entry fees"],
+      excludedItems: ["International shipping of ceramics (approx. $40-80 depending on size)", "2 dinners (guide recommendations provided)", "Personal expenses", "Travel insurance"],
       itinerary: [
-        { day: 1, title: "Meet the Clay", description: "Morning: Tour the Ancient Kiln Folk Customs Museum, watch master artisans at work. Afternoon: Your first pottery wheel session — learn to center, pull, and shape. Evening: Welcome dinner at a local restaurant inside a renovated Ming-dynasty kiln.", meals: "Lunch, Dinner" },
-        { day: 2, title: "Artists & Alleys", description: "Morning: Visit Taoxichuan Creative District, meet international resident artists in their studios. Afternoon: Explore Sanbao International Ceramic Village — hidden galleries, experimental kilns, and artisan teahouses. Try 'fingertip porcelain' — tiny pieces you paint and fire in 1 hour.", meals: "Breakfast, Lunch" },
-        { day: 3, title: "Kiln Firing & Wuyuan Bound", description: "Morning: Load your glazed pieces into a traditional wood-fired kiln. While it fires, visit the Jingdezhen Ceramic Museum. Afternoon: Private transfer to Wuyuan (1.5h). Check into a restored 300-year-old Hui-style courtyard guesthouse. Evening walk through Likeng Village at golden hour.", meals: "Breakfast, Lunch" },
-        { day: 4, title: "Wuyuan's Timeless Beauty", description: "Morning: Sunrise at Huangling Village — terraced fields, sun-drying crops, and misty mountains. Visit Rainbow Bridge, a Song Dynasty covered bridge. Afternoon: Transfer back to Jingdezhen. Pick up your fired ceramics (or arrange international shipping).", meals: "Breakfast, Lunch" },
+        { day: 1, title: "Meet the Clay", description: "Morning: Tour the Ancient Kiln Folk Customs Museum, watch master artisans throw porcelain at the wheel. Afternoon: Your first pottery session — learn to center, pull, and shape your own piece. Evening: Welcome dinner inside a renovated Ming-dynasty kiln restaurant.", meals: "Lunch, Dinner" },
+        { day: 2, title: "Artists & Alleys", description: "Morning: Visit Taoxichuan Creative District, meet international resident artists in their private studios. Afternoon: Explore Sanbao International Ceramic Village — hidden galleries, experimental kilns, artisan teahouses. Try fingertip porcelain painting. Evening: Free to explore the night market.", meals: "Breakfast, Lunch" },
+        { day: 3, title: "Fire & Finish", description: "Morning: Load your glazed piece into a traditional wood-fired kiln. Visit the Jingdezhen Ceramic Museum while it fires. Afternoon: Pick up your finished ceramic. Final walk through the old kiln alleys. Transfer to airport or train station.", meals: "Breakfast, Lunch" },
       ],
       faqs: [
-        { question: "Do I need any ceramics experience?", answer: "Zero experience required. Lin Yue is an expert teacher who has taught hundreds of beginners. You'll create something beautiful on day one." },
-        { question: "Can I ship my ceramics home?", answer: "Yes! We arrange international shipping. Most pieces arrive within 2-4 weeks. Cost depends on size/weight." },
-        { question: "Is this a group tour?", answer: "Absolutely not. This is a private experience — just you (and your companions) with Lin Yue. All pacing is flexible." },
+        { question: "Do I need any ceramics experience?", answer: "Zero experience required. Lin Yue has taught hundreds of beginners. You'll create something beautiful on day one — guaranteed." },
+        { question: "Can I ship my ceramics home?", answer: "Yes! We arrange international shipping. Most pieces arrive within 2-4 weeks. Cost depends on size and weight (typically $40-80)." },
+        { question: "How should I get to Jingdezhen?", answer: "High-speed trains from Shanghai (4h), Hangzhou (2.5h), or fly into Jingdezhen Luojia Airport (JDZ). We'll pick you up from either." },
       ],
       maxGroupSize: 4, isActive: true,
       routeGuides: { create: [{ guideProfileId: guide1.id, isFeatured: true }] },
