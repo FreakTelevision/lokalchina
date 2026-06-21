@@ -25,7 +25,7 @@ export default function Testimonials() {
       author: "Henrik, Sweden"
     },
     {
-      quote: "When I fell ill in Guangzhou, their bilingual escort had me in a premium private clinic within the hour. Incredibly reliable.",
+      quote: "I needed a CT scan in Guangzhou. Their fixer booked the appointment, handled registration, and translated every step. The whole process was seamless.",
       author: "Kenji, Japan"
     }
   ];
