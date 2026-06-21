@@ -24,10 +24,10 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
   };
 
   const differentiators = [
-    { icon: <UserCheck className="w-5 h-5" />, title: isZh ? "行家带队" : "Practitioners, not guides", desc: isZh ? "每一位在地专家都是各自领域的资深从业者" : "Every local expert is a seasoned practitioner in their field" },
-    { icon: <MapPin className="w-5 h-5" />, title: isZh ? "深度定制" : "Built around you", desc: isZh ? "行程完全按照你的节奏、兴趣和预算设计" : "Every itinerary is designed around your pace, interests, and budget" },
-    { icon: <Shield className="w-5 h-5" />, title: isZh ? "出行前后双重保障" : "Before and after you travel", desc: isZh ? "出发前筛选供应商，离境后持续跟进品控" : "We vet before you arrive, and watch your back after you leave" },
-    { icon: <Clock className="w-5 h-5" />, title: isZh ? "全年在线支持" : "365-day support", desc: isZh ? "中、英、日、韩多语种团队随时响应" : "Multilingual team available year-round" },
+    { icon: <UserCheck className="w-5 h-5" />, title: isZh ? "行家带队" : "Real practitioners", desc: isZh ? "每一位在地专家都是各自领域的资深从业者" : "Every local expert is a seasoned practitioner" },
+    { icon: <MapPin className="w-5 h-5" />, title: isZh ? "深度定制" : "Built around you", desc: isZh ? "行程完全按照你的节奏、兴趣和预算设计" : "Your pace, your interests, your budget" },
+    { icon: <Shield className="w-5 h-5" />, title: isZh ? "全程信任保障" : "Before & after care", desc: isZh ? "出发前筛选供应商，离境后持续跟进品控" : "We vet before, we watch after" },
+    { icon: <Clock className="w-5 h-5" />, title: isZh ? "全年在线支持" : "365-day support", desc: isZh ? "中、英、日、韩多语种团队随时响应" : "Multilingual team, always available" },
   ];
 
   return (
@@ -46,12 +46,12 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
       <section className="max-w-4xl mx-auto px-6 pb-20">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {differentiators.map((d, i) => (
-            <div key={i} className="text-center space-y-3">
+            <div key={i} className="flex flex-col items-center text-center gap-3">
               <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#f5f3f0] text-[#c5a880]">
                 {d.icon}
               </div>
-              <h3 className="text-xs font-semibold tracking-wider uppercase text-black">{d.title}</h3>
-              <p className="text-xs text-gray-500 leading-relaxed">{d.desc}</p>
+              <h3 className="text-[11px] font-semibold tracking-wider uppercase text-black whitespace-nowrap">{d.title}</h3>
+              <p className="text-[11px] text-gray-500 leading-snug max-w-[180px]">{d.desc}</p>
             </div>
           ))}
         </div>
