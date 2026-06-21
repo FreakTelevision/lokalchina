@@ -10,6 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { contactSchema } from "@/lib/validations";
 import { submitContactForm } from "@/actions/contact";
+import { FormSuccess } from "@/components/shared/form-success";
 
 export default function ContactPage() {
   const locale = useLocale();
@@ -45,18 +46,7 @@ export default function ContactPage() {
     else setSent(true);
   };
 
-  if (sent) {
-    return (
-      <div className="container mx-auto px-4 py-16 max-w-md text-center">
-        <Card>
-          <CardContent className="pt-12 pb-12">
-            <div className="text-4xl mb-4">✅</div>
-            <h2 className="text-2xl font-bold mb-2">{t("sent")}</h2>
-          </CardContent>
-        </Card>
-      </div>
-    );
-  }
+  if (sent) return <FormSuccess linkHref={`/${locale}/routes`} linkLabel={locale === "zh" ? "浏览路线" : "Explore our routes"} />;
 
   return (
     <div className="container mx-auto px-4 py-16 max-w-xl">

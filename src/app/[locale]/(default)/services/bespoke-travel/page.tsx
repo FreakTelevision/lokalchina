@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { MapPin, Calendar, Users, DollarSign, Mail } from 'lucide-react';
 import { Barlow_Condensed } from 'next/font/google';
 import { submitContactForm } from '@/actions/contact';
+import { FormSuccess } from '@/components/shared/form-success';
 
 const barlow = Barlow_Condensed({ subsets: ['latin'], weight: ['400', '700'], variable: '--font-condensed' });
 
@@ -21,9 +22,7 @@ export default function BespokeTravelPage() {
     if (res.success) setSent(true);
   };
 
-  if (sent) return (
-    <div className="bg-white min-h-screen flex items-center justify-center"><div className="text-center"><h2 className="text-2xl font-light mb-2">Thank you!</h2><p className="text-gray-500">We&apos;ll respond within 24 hours.</p></div></div>
-  );
+  if (sent) return <FormSuccess title="Blueprint received" subtitle="We'll review your vision and respond within 24 hours with a tailored proposal." linkHref="/en/routes" linkLabel="Explore our routes" />;
   return (
     <div className="bg-white text-black min-h-screen antialiased">
       <section className="relative min-h-[30vh] flex flex-col justify-center items-center text-center px-6 pt-12 pb-6">
