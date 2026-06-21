@@ -2,8 +2,9 @@
 
 import React, { useState } from 'react';
 import { ShieldCheck } from 'lucide-react';
+import DatePicker from '@/components/ui/date-picker';
 
-const priceTier: Record<number, number> = { 1: 2980, 2: 2360, 3: 1850, 4: 1470 };
+const priceTier: Record<number, number> = { 1: 2947, 2: 1694, 3: 1487, 4: 1225 };
 
 export default function JingdezhenBookingSidebar() {
   const [travelers, setTravelers] = useState(2);
@@ -21,7 +22,7 @@ export default function JingdezhenBookingSidebar() {
       <div className="space-y-3">
         <div>
           <label className="text-xs font-medium mb-1 block">Start Date</label>
-          <input type="text" value={date} onChange={(e) => setDate(e.target.value)} placeholder="MM/DD/YYYY" className="w-full border rounded-lg px-3 py-2 text-sm" />
+          <DatePicker value={date} onChange={setDate} />
         </div>
         <div>
           <label className="text-xs font-medium mb-1 block">Number of Travelers</label>
