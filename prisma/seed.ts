@@ -177,7 +177,7 @@ async function main() {
       slug: "shanxi-black-myth-pilgrimage",
       titleEn: "Shanxi — Black Myth: Wukong Architecture Pilgrimage, 6 Days",
       titleZh: "山西——《黑神话：悟空》古建朝圣之旅，6日",
-      destination: "datong",
+      destination: "shanxi",
       duration: 6,
       theme: "history",
       difficulty: "moderate",

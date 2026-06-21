@@ -11,6 +11,7 @@ export const DESTINATIONS = [
   { value: "linfen", labelEn: "Linfen", labelZh: "临汾" },
   { value: "jincheng", labelEn: "Jincheng", labelZh: "晋城" },
   { value: "yuncheng", labelEn: "Yuncheng", labelZh: "运城" },
+  { value: "shanxi", labelEn: "Shanxi Province", labelZh: "山西全省" },
 ] as const;
 
 export const THEMES = [
