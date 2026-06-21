@@ -98,7 +98,19 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         <span className="text-[10px] tracking-widest uppercase text-[#c5a880] font-medium block mb-3">{post.tag}</span>
         <h1 className="text-2xl md:text-3xl font-light leading-snug text-black mb-3">{post.title}</h1>
         <p className="text-xs text-gray-400 mb-12">{post.date}</p>
-        <article className="prose prose-slate max-w-none text-[15px] leading-relaxed" dangerouslySetInnerHTML={{ __html: post.content }} />
+        <article className="max-w-none" dangerouslySetInnerHTML={{ __html: post.content }} />
+        <style jsx global>{`
+          article p { font-size: 16px; line-height: 1.85; color: #334155; margin-bottom: 1.5em; }
+          article h2 { font-size: 20px; font-weight: 600; color: #0f172a; margin-top: 2.5em; margin-bottom: 0.75em; letter-spacing: -0.01em; }
+          article h3 { font-size: 16px; font-weight: 600; color: #334155; margin-top: 2em; margin-bottom: 0.5em; }
+          article ul, article ol { margin-bottom: 1.5em; padding-left: 1.5em; }
+          article li { font-size: 16px; line-height: 1.85; color: #334155; margin-bottom: 0.5em; }
+          article strong { color: #0f172a; font-weight: 600; }
+          article em { font-style: italic; color: #475569; }
+          article a { color: #c5a880; text-decoration: underline; text-underline-offset: 2px; }
+          article a:hover { color: #a08040; }
+          article blockquote { border-left: 2px solid #c5a880; padding-left: 1.2em; margin: 1.5em 0; color: #64748b; font-style: italic; }
+        `}</style>
         <div className="mt-16 pt-8 border-t border-gray-100">
           <Link href="/en/routes" className="text-sm text-[#c5a880] hover:underline">Explore our routes &rarr;</Link>
         </div>
