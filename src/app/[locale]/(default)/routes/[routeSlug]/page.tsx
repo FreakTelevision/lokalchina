@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { getRouteBySlug } from "@/lib/queries";
 import { RouteGallery } from "@/components/routes/route-gallery";
@@ -29,7 +29,13 @@ export default async function RouteDetailPage({ params }: RouteDetailPageProps) 
 
   if (!route) notFound();
 
+  // Redirect old Jingdezhen-Wuyuan URL to new ceramics-only URL
+  if (routeSlug === "jingdezhen-wuyuan-ceramics") {
+    redirect(`/${locale}/routes/jingdezhen-ceramics`);
+  }
+
   const isShanxi = routeSlug === "shanxi-black-myth-pilgrimage";
+  const isJingdezhen = routeSlug === "jingdezhen-ceramics";
   const destination = DESTINATIONS.find((d) => d.value === route.destination);
   const theme = THEMES.find((t) => t.value === route.theme);
   const t = await getTranslations("RouteDetail");
