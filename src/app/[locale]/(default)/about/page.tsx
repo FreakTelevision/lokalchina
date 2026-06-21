@@ -30,7 +30,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
   return (
     <div className={`bg-white min-h-screen ${montserrat.className}`}>
       {/* Hero */}
-      <section className="pt-16 pb-10 px-6 text-center max-w-3xl mx-auto">
+      <section className="pt-24 pb-16 px-6 text-center max-w-3xl mx-auto">
         <h1 className="text-2xl md:text-4xl font-light tracking-wide text-black leading-snug mb-4">
           {t.heroTitle}
         </h1>
@@ -40,7 +40,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
       </section>
 
       {/* Differentiators */}
-      <section className="max-w-4xl mx-auto px-6 pb-12">
+      <section className="max-w-4xl mx-auto px-6 pb-16">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {differentiators.map((d, i) => (
             <div key={i} className="flex flex-col items-center text-center gap-3">
@@ -55,14 +55,14 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
       </section>
 
       {/* Story */}
-      <section className="border-t border-gray-100 py-12 px-6">
+      <section className="border-t border-gray-100 py-14 px-6">
         <div className="max-w-2xl mx-auto text-[15px] leading-relaxed text-gray-600">
           <p>{t.body1}</p>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="text-center pb-16 px-6">
+      <section className="text-center pb-14 px-6">
         <Link href="/en/routes" className="inline-flex items-center gap-2 text-xs tracking-[0.2em] uppercase font-medium text-gray-500 hover:text-black transition-colors">
           {isZh ? "探索路线" : "Explore our routes"} &rarr;
         </Link>
