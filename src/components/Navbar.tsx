@@ -40,6 +40,7 @@ export default function Navbar({ locale }: { locale: string }) {
             </div>
           </div>
         </div>
+        <Link href={`/${locale}/blog`} className="hover:text-black transition-colors">Journal</Link>
         <Link href={`/${locale}/about`} className="hover:text-black transition-colors">About</Link>
       </nav>
 
